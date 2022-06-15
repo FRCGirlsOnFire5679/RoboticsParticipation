@@ -5,7 +5,22 @@
         <input type="button" @click="showSignWaiver" value="Complete Waiver"/>
         <input type="button" @click="showSignIn" value="Sign In"/>
         <input type="button" @click="showSignOut" value="Sign Out"/>
+        <input type="button" @click="showTesting" value="Test Form Submission"/>
       </section>
+      <!-- TODO: Play with Github Pages encrypted secrets -->
+      <form v-if="shouldShowTesting"
+            @submit.prevent="onSubmit">
+
+            <label for="test-email">Email</label>
+            <input type="text" id="test-email" v-model="testEmail" /> {{testEmail}}
+            <label for="test-name">Name</label>
+            <input type="text" id="test-name" v-model="testName" /> {{testName}}
+            <label for="test-message">Message</label>
+            <input type="text" id="test-message" v-model="testMessage" /> {{testMessage}}
+            <label for="test-Color">Color</label>
+            <input type="text" id="test-color" v-model="testColor" /> {{testColor}}
+            <input type="submit" value="Submit" />
+      </form>
       <form v-if="shouldShowSignWaiver">
         <!-- Form Example (submitting currently does nothing with the data) -->
         <h2>Please Complete the Waiver</h2>
@@ -110,7 +125,16 @@ export default {
       // initialized to false
       shouldShowSignOut: false,
       // initialized to false
-      shouldShowSignWaiver: false
+      shouldShowSignWaiver: false,
+      // initialized to false
+      shouldShowTesting: false,
+
+      // test form data
+      testEmail: '',
+      testName: '',
+      testMessage: '',
+      testColor: '',
+      action: 'https://script.google.com/macros/s/AKfycbz2piLsMTHmxqrdVTCEo7gRaCfyTFkz8Cfy2pbQpxa7qq9lK8uujDQz_RoG4YyIuSAq/exec'
     }
   },
   methods: {
@@ -118,16 +142,80 @@ export default {
       this.shouldShowSignIn = false;
       this.shouldShowSignOut = true;
       this.shouldShowSignWaiver = false;
+      this.shouldShowTesting = false;
     },
     showSignIn() {
       this.shouldShowSignIn = true;
       this.shouldShowSignOut = false;
       this.shouldShowSignWaiver = false;
+      this.shouldShowTesting = false;
     },
     showSignWaiver() {
       this.shouldShowSignIn = false;
       this.shouldShowSignOut = false;
       this.shouldShowSignWaiver = true;
+      this.shouldShowTesting = false;
+    },
+    showTesting() {
+      this.shouldShowSignIn = false;
+      this.shouldShowSignOut = false;
+      this.shouldShowSignWaiver = false;
+      this.shouldShowTesting = true;
+    },
+    onSubmit(form) {
+      // TODO: disable submit button while data is being sent
+      console.log("getting to submit method");
+      console.log(form);
+      let fields = {
+        testName: this.testName,
+        testMessage: this.testMessage,
+        testEmail: this.testEmail,
+        testColor: this.testColor
+      };
+      console.log(fields);
+      let data = {
+        testName: this.testName,
+        testMessage: this.testMessage,
+        testEmail: this.testEmail,
+        testColor: this.testColor,
+        formDataNameOrder: fields,
+        formGoogleSheetName: 'test', // TODO: consider pulling from config
+        formGoogleSendEmail: this.testEmail || '' // no email by default
+      };
+      console.log(data);
+      let url = this.action;
+      // let encoded = Object.keys(data).map(function(k) {
+      //     return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      // }).join('&');
+      
+      // fetch(url, {method: 'POST', body: encoded})
+      //   .then(response => {
+      //     console.log(response);
+      //       // TODO: reset form
+      //       // TODO: display confirmation message
+      //   })
+      //   .catch(error => {
+      //     console.log(error);
+      //     // TODO: display friendly error message
+      //   });
+      let xhr = new XMLHttpRequest();
+
+      xhr.open('POST', url);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.status);
+            console.log(xhr)
+            // TODO: reset form
+            // TODO: display confirmation message
+          }
+      };
+      // url encode form data for sending as post data
+      let encoded = Object.keys(data).map(function(k) {
+          return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      }).join('&');
+      console.log(encoded);
+      xhr.send(encoded);
     }
   }
 }
