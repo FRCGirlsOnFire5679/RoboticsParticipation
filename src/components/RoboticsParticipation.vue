@@ -130,6 +130,7 @@ export default {
       shouldShowTesting: false,
 
       // test form data
+      // test form flow inspired by https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server
       testEmail: '',
       testName: '',
       testMessage: '',
