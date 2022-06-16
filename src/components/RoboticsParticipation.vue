@@ -24,6 +24,12 @@
                      id="main-waiver-parent-guardian-name"
                      name="main-waiver-parent-guardian-name" />
           </div>
+          <div class="input-container">
+              <label for="main-waiver-participant-date-of-birth">If participant is under 18: participant date of birth (optional)</label>
+              <input type="text"
+                     id="main-waiver-participant-date-of-birth"
+                     name="main-waiver-participant-date-of-birth" />
+          </div>
               If participant is under 18: participant date of birth (optional) <br />
               participant address (optional) <br />
               Participant Email, or If participant is under 18: parent/guardian email (required) <br />
