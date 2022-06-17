@@ -30,8 +30,42 @@
                      id="main-waiver-participant-date-of-birth"
                      name="main-waiver-participant-date-of-birth" />
           </div>
-              If participant is under 18: participant date of birth (optional) <br />
-              participant address (optional) <br />
+          <div class="input-container">
+              <label for="main-waiver-parent-guardian-email">Participant Email, or If participant is under 18: parent/guardian email (required)</label>
+              <input type="text"
+                     id="main-waiver-parent-guardian-email"
+                     name="main-waiver-parent-guardian-email" />
+          </div>
+          <div class="input-container">
+              <label for="main-waiver-agree-to-waiver">Agree to waiver  (required)</label>
+              <input type="checkbox"
+                     id="main-waiver-agree-to-waiver"
+                     name="main-waiver-agree-to-waiver" />
+          </div>
+          <div class="input-container">
+              <label for="main-waiver-name-of-person-agreeing">Name of person agreeing  (required)</label>
+              <input type="text"
+                     id="main-waiver-name-of-person-agreeing"
+                     name="main-waiver-name-of-person-agreeing" />
+          </div>
+          <div class="input-container">
+              <label for="main-waiver-date">Date  (can get without input)</label>
+              <input type="text"
+                     id="main-waiver-date"
+                     name="main-waiver-date" />
+          </div>
+          <div class="input-container">
+              <label for="main-waiver-emergency-contact-name">Emergency contact name  (required)</label>
+              <input type="text"
+                     id="main-waiver-emergency-contact-name"
+                     name="main-waiver-emergency-contact-name" />
+          </div>
+          <div class="input-container">
+              <label for="main-waiver-emergency-contact-phone">Emergency contact phone  (required)</label>
+              <input type="text"
+                     id="main-waiver-emergency-contact-phone"
+                     name="main-waiver-emergency-contact-phone" />
+          </div>
               Participant Email, or If participant is under 18: parent/guardian email (required) <br />
               Agree to waiver (required) <br />
               Name of person agreeing (required) <br />
