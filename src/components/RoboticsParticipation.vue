@@ -66,6 +66,39 @@
                      id="main-waiver-emergency-contact-phone"
                      name="main-waiver-emergency-contact-phone" />
           </div>
+           <div class="input-container">
+              <label for="main-waiver-covid-19-placeholder">Fully vaccinated attestation OR Not fully vaccinated, but agree to abide by testing requirements instead (required) </label>
+              <input type="checkbox"
+                     id="main-waiver-covid-19-placeholder"
+                     name="main-waiver-covid-19-placeholder" />
+                     </div>
+                     <div class="input-container">
+              <label for="main-waiver-agree-to-abide-by-policy">Agree to abide by policy, or agree on behalf of under-18 child participant (required)</label>
+              <input type="checkbox"
+                     id="main-waiver-agree-to-abide-by-policy"
+                     name="main-waiver-agree-to-abide-by-policy" />
+          </div>
+          <div class="input-container">
+              <label for="main-waiver-participant-name">Participant Name (required)</label>
+              <input type="text"
+                     required
+                     id="main-waiver-participant-name"
+                     name="main-waiver-participant-name" />
+          </div>
+          <div class="input-container">
+              <label for="main-waiver-parent-and-guardian-name">Parent/Guardian name (required)</label>
+              <input type="text"
+                     required
+                     id="main-waiver-parent-and-guardian-name"
+                     name="main-waiver-parent-and-guardian-name" />
+          </div>
+          <div class="input-container">
+              <label for="main-waiver-date">Date  (can get without input)</label>
+              <input type="text"
+                     id="main-waiver-date"
+                     name="main-waiver-date" />
+          </div>
+
               Participant Email, or If participant is under 18: parent/guardian email (required) <br />
               Agree to waiver (required) <br />
               Name of person agreeing (required) <br />
