@@ -3,6 +3,7 @@
     <h1>{{ msg }}</h1>
       <section class="pseudo-navigation">
         <input type="button" @click="showSignWaiver" value="Complete Waiver"/>
+        <input type="radio" @click="showSignWaiver" value="Complete Covid-19 Waiver"/>
         <input type="button" @click="showSignIn" value="Sign In"/>
         <input type="button" @click="showSignOut" value="Sign Out"/>
       </section>
@@ -13,88 +14,96 @@
         <section class="form-inputs-container">
           <div class="input-container">
               <label for="main-waiver-participant-name">Participant Name (required)</label>
-              <input type="text"
-                     required
+              <input v-model ="text" placeholder="edit me"
+                     required 
                      id="main-waiver-participant-name"
                      name="main-waiver-participant-name" />
           </div>
           <div class="input-container">
               <label for="main-waiver-parent-guardian-name">If participant is under 18: parent/guardian name (optional)</label>
-              <input type="text"
+              <input v-model="text" 
                      id="main-waiver-parent-guardian-name"
                      name="main-waiver-parent-guardian-name" />
           </div>
           <div class="input-container">
               <label for="main-waiver-participant-date-of-birth">If participant is under 18: participant date of birth (optional)</label>
-              <input type="text"
+              <input v-model="text"
                      id="main-waiver-participant-date-of-birth"
                      name="main-waiver-participant-date-of-birth" />
           </div>
           <div class="input-container">
               <label for="main-waiver-parent-guardian-email">Participant Email, or If participant is under 18: parent/guardian email (required)</label>
-              <input type="text"
+              <input v-model="text"
                      id="main-waiver-parent-guardian-email"
                      name="main-waiver-parent-guardian-email" />
           </div>
           <div class="input-container">
               <label for="main-waiver-agree-to-waiver">Agree to waiver  (required)</label>
-              <input type="checkbox"
+              <input v-model="checkbox"
                      id="main-waiver-agree-to-waiver"
                      name="main-waiver-agree-to-waiver" />
           </div>
           <div class="input-container">
               <label for="main-waiver-name-of-person-agreeing">Name of person agreeing  (required)</label>
-              <input type="text"
+              <input v-model="text"
                      id="main-waiver-name-of-person-agreeing"
                      name="main-waiver-name-of-person-agreeing" />
           </div>
           <div class="input-container">
               <label for="main-waiver-date">Date  (can get without input)</label>
-              <input type="text"
+              <input v-model="text"
                      id="main-waiver-date"
                      name="main-waiver-date" />
           </div>
           <div class="input-container">
               <label for="main-waiver-emergency-contact-name">Emergency contact name  (required)</label>
-              <input type="text"
+              <input v-model="text"
                      id="main-waiver-emergency-contact-name"
                      name="main-waiver-emergency-contact-name" />
           </div>
-          <div class="input-container">
+         <div class="input-container">
               <label for="main-waiver-emergency-contact-phone">Emergency contact phone  (required)</label>
-              <input type="text"
+              <input v-model="text"
                      id="main-waiver-emergency-contact-phone"
                      name="main-waiver-emergency-contact-phone" />
-          </div>
+         </div>
+        </section>
+         <h2>Please Complete the Covid-19 Waiver</h2>
+        (main waiver placeholder)
+        <section class="form-inputs-container">
            <div class="input-container">
-              <label for="main-waiver-covid-19-placeholder">Fully vaccinated attestation OR Not fully vaccinated, but agree to abide by testing requirements instead (required) </label>
-              <input type="checkbox"
-                     id="main-waiver-covid-19-placeholder"
-                     name="main-waiver-covid-19-placeholder" />
+              <label for="main-waiver-covid-19-vacination">Fully vaccinated attestation OR Not fully vaccinated, but agree to abide by testing requirements instead (required) </label>
+              <select v-model="selected">
+              <option disabled value=""> Please select one</option>
+              <option>Yes</option>
+              <option>No</option>
+              </select>
+                     id="main-waiver-covid-19-vacination"
+                     name="main-waiver-covid-19-vacination" />
                      </div>
                      <div class="input-container">
               <label for="main-waiver-agree-to-abide-by-policy">Agree to abide by policy, or agree on behalf of under-18 child participant (required)</label>
-              <input type="checkbox"
+              <input v-model="checkbox"
                      id="main-waiver-agree-to-abide-by-policy"
                      name="main-waiver-agree-to-abide-by-policy" />
           </div>
           <div class="input-container">
               <label for="main-waiver-participant-name">Participant Name (required)</label>
-              <input type="text"
+              <input v-model="text"
                      required
                      id="main-waiver-participant-name"
                      name="main-waiver-participant-name" />
           </div>
           <div class="input-container">
               <label for="main-waiver-parent-and-guardian-name">Parent/Guardian name (required)</label>
-              <input type="text"
+              <input v-model="text"
                      required
                      id="main-waiver-parent-and-guardian-name"
                      name="main-waiver-parent-and-guardian-name" />
           </div>
           <div class="input-container">
               <label for="main-waiver-date">Date  (can get without input)</label>
-              <input type="text"
+              <input v-model="text"
                      id="main-waiver-date"
                      name="main-waiver-date" />
           </div>
@@ -171,20 +180,23 @@
 </template>
 
 <script>
+import { VueElement } from 'vue';
+
 export default {
   name: 'RoboticsParticipation',
   props: {
     msg: String
   },
-  data() {
+  data(){
     return {
+      name: '',
       // initialized to false
       shouldShowSignIn: false,
       // initialized to false
       shouldShowSignOut: false,
       // initialized to false
       shouldShowSignWaiver: false
-    }
+          }
   },
   methods: {
     showSignOut() {
@@ -204,6 +216,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
