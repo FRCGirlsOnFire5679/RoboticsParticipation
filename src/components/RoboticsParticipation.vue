@@ -32,37 +32,37 @@
           </div>
           <div class="input-container">
               <label for="main-waiver-parent-guardian-email">Participant Email, or If participant is under 18: parent/guardian email (required)</label>
-              <input type="text" v-model.trim="value"
+              <input type="text" v-model.trim="participantEmail"
                      id="main-waiver-parent-guardian-email"
                      name="main-waiver-parent-guardian-email" />
           </div>
           <div class="input-container">
               <label for="main-waiver-agree-to-waiver">Agree to waiver  (required)</label>
-              <input type="checkbox" v-model="value"
+              <input type="checkbox" v-model="waiverAgreement"
                      id="main-waiver-agree-to-waiver"
                      name="main-waiver-agree-to-waiver" />
           </div>
           <div class="input-container">
               <label for="main-waiver-name-of-person-agreeing">Name of person agreeing  (required)</label>
-              <input type="text" v-model.trim="value"
+              <input type="text" v-model.trim="name"
                      id="main-waiver-name-of-person-agreeing"
                      name="main-waiver-name-of-person-agreeing" />
           </div>
           <div class="input-container">
               <label for="main-waiver-date">Date  (can get without input)</label>
-              <input type="text" v-model.trim="value"
+              <input type="date" v-model.trim="date"
                      id="main-waiver-date"
                      name="main-waiver-date" />
           </div>
           <div class="input-container">
               <label for="main-waiver-emergency-contact-name">Emergency contact name  (required)</label>
-              <input type="text" v-model.trim="value"
+              <input type="text" v-model.trim="emergencyContact"
                      id="main-waiver-emergency-contact-name"
                      name="main-waiver-emergency-contact-name" />
           </div>
          <div class="input-container">
               <label for="main-waiver-emergency-contact-phone">Emergency contact phone  (required)</label>
-              <input type="text" v-model.trim="value"
+              <input type="text" v-model.trim="emergencyPhone"
                      id="main-waiver-emergency-contact-phone"
                      name="main-waiver-emergency-contact-phone" />
          </div>
@@ -72,43 +72,47 @@
         <section class="form-inputs-container">
            <div class="input-container">
               <label for="main-waiver-covid-19-vacination">Fully vaccinated attestation OR Not fully vaccinated</label>
-              <select v-model="selected">
-              <option disabled value=""> Please select one</option>
-              <option>Yes</option>
-              <option>No</option>
-              </select>
-                     id="main-waiver-covid-19-vacination"
-                     name="main-waiver-covid-19-vacination" />
+              <br><br>
+              <input type="radio" value="vaccinated" id="vaccinated"/>
+              <label for="vaccinated" >Vaccinated</label>
+              <br><br>
+              <input type="radio" value="notVaccinated" id="notVaccinated"/>
+              <label for="notVaccinated" >Not Vaccinated</label>
                      </div>
+                     <br><br>
                       <div class="input-container">
               <label for="main-waiver-agree-to-testing-requirements">Agree to abide by testing requirements instead (required) </label>
-              <input type="checkbox" v-model="value"
+              <input type="checkbox" v-model="testing"
                      id="main-waiver-agree-to-testing-requirements"
                      name="main-waiver-agree-to-testing-requirements" />
           </div>
+          <br><br>
                      <div class="input-container">
               <label for="main-waiver-agree-to-abide-by-policy">Agree to abide by policy, or agree on behalf of under-18 child participant (required)</label>
-              <input type="checkbox" v-model="value"
+              <input type="checkbox" v-model="vpolicy"
                      id="main-waiver-agree-to-abide-by-policy"
                      name="main-waiver-agree-to-abide-by-policy" />
           </div>
+          <br><br>
           <div class="input-container">
               <label for="main-waiver-participant-name">Participant Name (required)</label>
-              <input type="text" v-model.trim="value"
+              <input type="text" v-model.trim="participantNamet"
                      required
                      id="main-waiver-participant-name"
                      name="main-waiver-participant-name" />
           </div>
+          <br><br>
           <div class="input-container">
               <label for="main-waiver-parent-and-guardian-name">Parent/Guardian name (required)</label>
-              <input type="text" v-model.trim="value"
+              <input type="text" v-model.trim="guardianNamet"
                      required
                      id="main-waiver-parent-and-guardian-name"
                      name="main-waiver-parent-and-guardian-name" />
           </div>
+          <br><br>
           <div class="input-container">
               <label for="main-waiver-date">Date  (can get without input)</label>
-              <input type="text" v-model.trim="value"
+              <input type="text" v-model.trim="datet"
                      id="main-waiver-date"
                      name="main-waiver-date" />
           </div>
@@ -195,6 +199,19 @@ export default {
       participantName: '',
       guardianName: '',
       dob:'',
+      participantEmail:'',
+      waiverAgreement:'',
+      name:'',
+      date:'',
+      emergencyContact:'',
+      emergencyPhone:'',
+      vaccinated:'',
+      notVaccinated:'',
+      testing:'',
+      policy:'',
+      participantNamet: '',
+      guardianNamet: '',
+      datet:'',
       // initialized to false
       shouldShowSignIn: false,
       // initialized to false
