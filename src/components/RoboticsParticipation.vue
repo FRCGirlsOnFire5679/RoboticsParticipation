@@ -28,22 +28,6 @@ export default {
   },
   data(){
     return {
-      participantName: '',
-      guardianName: '',
-      dob:'',
-      participantEmail:'',
-      waiverAgreement:'',
-      name:'',
-      date:'',
-      emergencyContact:'',
-      emergencyPhone:'',
-      vaccinated:'',
-      notVaccinated:'',
-      testing:'',
-      policy:'',
-      participantNamet: '',
-      guardianNamet: '',
-      datet:'',
       // initialized to true - i.e. show by default
       shouldShowSignIn: true,
       // initialized to false
