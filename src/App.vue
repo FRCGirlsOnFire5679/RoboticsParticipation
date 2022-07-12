@@ -1,6 +1,7 @@
 <template>
-  <img alt="Kaleideum: Learning Reimagined" src="./assets/logo.png" id="kal-logo">
-  <RoboticsParticipation msg="Welcome to Kaleideum Community Robotics!"/>
+  <!-- temporarily  commenting out logo -->
+  <!-- <img alt="Kaleideum: Learning Reimagined" src="./assets/logo.png" id="kal-logo"> -->
+  <RoboticsParticipation msg="Welcome to Winston-Salem Community Robotics!"/>
 </template>
 
 <script>
