@@ -82,21 +82,21 @@
                      <br><br>
                       <div class="input-container">
               <label for="main-waiver-agree-to-testing-requirements">Agree to abide by testing requirements instead (required) </label>
-              <input type="checkbox" v-model="testing"
+              <input type="checkbox" v-model="testingAgreement"
                      id="main-waiver-agree-to-testing-requirements"
                      name="main-waiver-agree-to-testing-requirements" />
           </div>
           <br><br>
                      <div class="input-container">
               <label for="main-waiver-agree-to-abide-by-policy">Agree to abide by policy, or agree on behalf of under-18 child participant (required)</label>
-              <input type="checkbox" v-model="vpolicy"
+              <input type="checkbox" v-model="policyAreement"
                      id="main-waiver-agree-to-abide-by-policy"
                      name="main-waiver-agree-to-abide-by-policy" />
           </div>
           <br><br>
           <div class="input-container">
               <label for="main-waiver-participant-name">Participant Name (required)</label>
-              <input type="text" v-model.trim="participantNamet"
+              <input type="text" v-model.trim="covidFormParticipant"
                      required
                      id="main-waiver-participant-name"
                      name="main-waiver-participant-name" />
@@ -104,7 +104,7 @@
           <br><br>
           <div class="input-container">
               <label for="main-waiver-parent-and-guardian-name">Parent/Guardian name (required)</label>
-              <input type="text" v-model.trim="guardianNamet"
+              <input type="text" v-model.trim="covidFormGuardian"
                      required
                      id="main-waiver-parent-and-guardian-name"
                      name="main-waiver-parent-and-guardian-name" />
@@ -112,7 +112,7 @@
           <br><br>
           <div class="input-container">
               <label for="main-waiver-date">Date  (can get without input)</label>
-              <input type="text" v-model.trim="datet"
+              <input type="text" v-model.trim="covidFormDate"
                      id="main-waiver-date"
                      name="main-waiver-date" />
           </div>
@@ -139,7 +139,7 @@
           <div class="input-container">
             <label for="full-name">Full Name (required; use the name you used for sign up):
             </label>
-            <input type="text"
+            <input type="text" v-model.trim="fullName"
                     required
                     class="name-input"
                     id="full-name"
@@ -149,16 +149,16 @@
             <label for="team-name">  
               Team Name (optional; e.g. "5679" or "Girls on Fire 5679"):
             </label>
-            <input type="text"
+            <input type="text" v-model.trim="team"
                   class="name-input"
                   id="team-name"
                   name="team-name" />
           </div>
           <div class="action-container">
-            <input type="button"
+            <input type="button" 
                    value="Go To Sign Out"
                    @click="showSignOut" />
-            <input type="submit"
+            <input type="submit" 
                    value="Submit" />
           </div>
         </section>
@@ -170,17 +170,17 @@
           <div class="input-container">
             <label for="full-name">Full Name (required; use the name you used for sign in):
             </label>
-            <input type="text"
+            <input type="text" v-model.trim="fullNameSignOut"
                     required
                     class="name-input"
                     id="full-name"
                     name="full-name" />
           </div>
           <div class="action-container">
-            <input type="button"
+            <input type="button" 
                    value="Go To Sign In"
                    @click="showSignIn" />
-            <input type="submit"
+            <input type="submit" 
                    value="Submit" />
           </div>
         </section>
@@ -209,9 +209,13 @@ export default {
       notVaccinated:'',
       testing:'',
       policy:'',
-      participantNamet: '',
-      guardianNamet: '',
-      datet:'',
+      covidFormParticipant: '',
+      covidFormGuardian: '',
+      covidFormDate:'',
+      fullName:'',
+      team:'',
+      fullNameSignOut:'',
+    
       // initialized to false
       shouldShowSignIn: false,
       // initialized to false
