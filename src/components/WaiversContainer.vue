@@ -6,11 +6,12 @@
         <section v-if="isFormUntouched">
           <div class="action-container">
             <button @click.prevent="selectAmParentGuardian">I am the Parent / Guardian of a Participant</button>
-            <button @click.prevent="selectAmOver19Participant">I am a Participant who is over 18 years old</button>
+            <button @click.prevent="selectAmOver18Participant">I am a Participant who is 18 years old or older</button>
           </div>
         </section>
         <section v-if="!isFormUntouched">
-          <MainWaiverContainer />
+          <MainWaiverParentGuardian v-if="isParentGuardian" />
+          <MainWaiverOver18Participant v-if="isOver18Participant" />
           <Covid19WaiverContainer />
         </section>
       </section>
@@ -18,14 +19,16 @@
 </template>
 
 <script>
-import MainWaiverContainer from './MainWaiverContainer.vue'
+import MainWaiverParentGuardian from './MainWaiverParentGuardian.vue'
+import MainWaiverOver18Participant from './MainWaiverOver18Participant.vue';
 import Covid19WaiverContainer from './Covid19WaiverContainer.vue'
 
 export default {
   components: {
-    MainWaiverContainer,
-    Covid19WaiverContainer
-  },
+    Covid19WaiverContainer,
+    MainWaiverParentGuardian,
+    MainWaiverOver18Participant
+},
   name: 'WaiversContainer',
   props: {
     msg: String
@@ -45,7 +48,7 @@ export default {
     selectAmParentGuardian() {
       this.isParentGuardian = true;
     },
-    selectAmOver19Participant() {
+    selectAmOver18Participant() {
       this.isOver18Participant = true;
     }
   }

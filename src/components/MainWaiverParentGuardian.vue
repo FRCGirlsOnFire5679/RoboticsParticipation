@@ -11,49 +11,37 @@
                     name="main-waiver-participant-name" />
         </div>
         <div class="input-container">
-            <label for="main-waiver-parent-guardian-name">If participant is under 18: parent/guardian name (optional)</label>
-            <input type="text" v-model.trim="guardianName"
+            <label for="main-waiver-parent-guardian-name">Parent/Guardian name (required)</label>
+            <input type="text" v-model.trim="parentGuardianName"
                     id="main-waiver-parent-guardian-name"
                     name="main-waiver-parent-guardian-name" />
         </div>
         <div class="input-container">
-            <label for="main-waiver-participant-date-of-birth">If participant is under 18: participant date of birth (optional)</label>
+            <label for="main-waiver-participant-date-of-birth">Participant date of birth (required)</label>
             <input type="date" v-model.trim="dob"
                     id="main-waiver-participant-date-of-birth"
                     name="main-waiver-participant-date-of-birth" />
         </div>
         <div class="input-container">
-            <label for="main-waiver-parent-guardian-email">Participant Email, or If participant is under 18: parent/guardian email (required)</label>
-            <input type="text" v-model.trim="participantEmail"
+            <label for="main-waiver-parent-guardian-email">Parent/Guardian email (required)</label>
+            <input type="text" v-model.trim="signerEmail"
                     id="main-waiver-parent-guardian-email"
                     name="main-waiver-parent-guardian-email" />
         </div>
         <div class="input-container">
-            <label for="main-waiver-agree-to-waiver">Agree to waiver  (required)</label>
-            <input type="checkbox" v-model="waiverAgreement"
+            <label for="main-waiver-agree-to-waiver">Agree to waiver (required)</label>
+            <input type="checkbox" v-model="isWaiverAgreedTo"
                     id="main-waiver-agree-to-waiver"
                     name="main-waiver-agree-to-waiver" />
         </div>
         <div class="input-container">
-            <label for="main-waiver-name-of-person-agreeing">Name of person agreeing  (required)</label>
-            <input type="text" v-model.trim="name"
-                    id="main-waiver-name-of-person-agreeing"
-                    name="main-waiver-name-of-person-agreeing" />
-        </div>
-        <div class="input-container">
-            <label for="main-waiver-date">Date  (can get without input)</label>
-            <input type="date" v-model.trim="date"
-                    id="main-waiver-date"
-                    name="main-waiver-date" />
-        </div>
-        <div class="input-container">
-            <label for="main-waiver-emergency-contact-name">Emergency contact name  (required)</label>
-            <input type="text" v-model.trim="emergencyContact"
+            <label for="main-waiver-emergency-contact-name">Emergency contact name (required)</label>
+            <input type="text" v-model.trim="emergencyContactName"
                     id="main-waiver-emergency-contact-name"
                     name="main-waiver-emergency-contact-name" />
         </div>
         <div class="input-container">
-            <label for="main-waiver-emergency-contact-phone">Emergency contact phone  (required)</label>
+            <label for="main-waiver-emergency-contact-phone">Emergency contact phone (required)</label>
             <input type="text" v-model.trim="emergencyPhone"
                     id="main-waiver-emergency-contact-phone"
                     name="main-waiver-emergency-contact-phone" />
@@ -64,12 +52,19 @@
 
 <script>
 export default {
-  name: 'MainWaiverContainer',
+  name: 'MainWaiverParentGuardian',
   props: {
     msg: String
   },
   data(){
     return {
+      participantName: '',
+      parentGuardianName: '',
+      dob: '',
+      signerEmail: '',
+      isWaiverAgreedTo: false,
+      emergencyContactName: '',
+      emergencyContactPhone: ''
     }
   },
 }
