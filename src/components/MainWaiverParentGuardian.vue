@@ -29,12 +29,6 @@
                     name="main-waiver-parent-guardian-email" />
         </div>
         <div class="input-container">
-            <label for="main-waiver-agree-to-waiver">Agree to waiver (required)</label>
-            <input type="checkbox" v-model="isWaiverAgreedTo"
-                    id="main-waiver-agree-to-waiver"
-                    name="main-waiver-agree-to-waiver" />
-        </div>
-        <div class="input-container">
             <label for="main-waiver-emergency-contact-name">Emergency contact name (required)</label>
             <input type="text" v-model.trim="emergencyContactName"
                     id="main-waiver-emergency-contact-name"
@@ -46,12 +40,25 @@
                     id="main-waiver-emergency-contact-phone"
                     name="main-waiver-emergency-contact-phone" />
         </div>
+        <MainWaiverAgreement></MainWaiverAgreement>
+        <div>
+           <input type="checkbox" v-model="isWaiverAgreedTo"
+                    id="main-waiver-agree-to-waiver"
+                    name="main-waiver-agree-to-waiver" />
+            <label for="main-waiver-agree-to-waiver">The Parent/Guardian of a Participant under 18 years of age has read this document and understands that this Waiver and Release of Liability includes a waiver of the right to make injury claims that is intended to be legally binding. By checking this box, the Parent/Guardian of a Participant under 18 years of age agrees to this Waiver and Release of Liability (required)</label>
+           
+        </div>
+        
       </section>
     </form>
 </template>
 
 <script>
+import MainWaiverAgreement from './MainWaiverAgreement.vue'
 export default {
+  components: {
+    MainWaiverAgreement
+  },
   name: 'MainWaiverParentGuardian',
   props: {
     msg: String
