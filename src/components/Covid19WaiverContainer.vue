@@ -1,101 +1,53 @@
 <template>
     <form>
-      <h2>Please Complete the Covid-19 Waiver</h2>
+      <!-- Form Example (submitting currently does nothing with the data) -->
+      <h2 v-if="isFormUntouched">COVID-19 waiver:</h2>
+      <label for="main-waiver-covid-19-vacination">Fully vaccinated attestation OR Not fully vaccinated</label>
       <section class="form-inputs-container">
-          <div class="input-container">
-            <label for="main-waiver-covid-19-vacination">Fully vaccinated attestation OR Not fully vaccinated</label>
-            <br><br>
-            <input type="radio" value="vaccinated" id="vaccinated"/>
-            <label for="vaccinated" >Vaccinated</label>
-            <br><br>
-            <input type="radio" value="notVaccinated" id="notVaccinated"/>
-            <label for="notVaccinated" >Not Vaccinated</label>
-                    </div>
-                    <br><br>
-                    <div class="input-container">
-            <label for="main-waiver-agree-to-testing-requirements">Agree to abide by testing requirements instead (required) </label>
-            <input type="checkbox" v-model="testing"
-                    id="main-waiver-agree-to-testing-requirements"
-                    name="main-waiver-agree-to-testing-requirements" />
-        </div>
-        <br><br>
-                    <div class="input-container">
-            <label for="main-waiver-agree-to-abide-by-policy">Agree to abide by policy, or agree on behalf of under-18 child participant (required)</label>
-            <input type="checkbox"
-                    id="main-waiver-agree-to-abide-by-policy"
-                    name="main-waiver-agree-to-abide-by-policy" />
-        </div>
-        <br><br>
-        <div class="input-container">
-            <label for="main-waiver-participant-name">Participant Name (required)</label>
-            <input type="text" v-model.trim="participantNamet"
-                    required
-                    id="main-waiver-participant-name"
-                    name="main-waiver-participant-name" />
-        </div>
-        <br><br>
-        <div class="input-container">
-            <label for="main-waiver-parent-and-guardian-name">Parent/Guardian name (required)</label>
-            <input type="text" v-model.trim="guardianNamet"
-                    required
-                    id="main-waiver-parent-and-guardian-name"
-                    name="main-waiver-parent-and-guardian-name" />
-        </div>
-        <br><br>
-        <div class="input-container">
-            <label for="main-waiver-date">Date  (can get without input)</label>
-            <input type="text" v-model.trim="datet"
-                    id="main-waiver-date"
-                    name="main-waiver-date" />
-        </div>
-
-            Participant Email, or If participant is under 18: parent/guardian email (required) <br />
-            Agree to waiver (required) <br />
-            Name of person agreeing (required) <br />
-            Date (can get without input) <br />
-            Emergency contact name (required) <br />
-            Emergency contact phone (required) <br />
+        <section v-if="d">
+          <div class="action-container">
+              
+            
+          </div>
+        </section>
+        <section v-if="g">
+          <Covid19WaiverVaccinated v-if="vaccinated" />
+          <Covid19WaiverNotVaccinated v-if="notVaccinated" />
+        </section>
       </section>
-
-      (COVID-19 waiver placeholder)
-            (radio) Fully vaccinated attestation OR Not fully vaccinated, but agree to abide by testing requirements instead (required)
-            (checkbox) Agree to abide by policy, or agree on behalf of under-18 child participant (required)
-            Participant name (required)
-            Parent/Guardian name (required)
-            Date (can get without input)
     </form>
 </template>
 
 <script>
+import Covid19WaiverVaccinated from './Covid19WaiverVaccinated.vue'
+import Covid19WaiverNotVaccinated from './Covid19WaiverNotVaccinated.vue';
+
 export default {
+  components: {
+    Covid19WaiverNotVaccinated,
+    Covid19WaiverVaccinated,
+},
   name: 'Covid19WaiverContainer',
   props: {
     msg: String
   },
   data(){
     return {
-      participantName: '',
-      guardianName: '',
-      dob:'',
-      participantEmail:'',
-      waiverAgreement:'',
-      name:'',
-      date:'',
-      emergencyContact:'',
-      emergencyPhone:'',
-      vaccinated:'',
-      notVaccinated:'',
-      testing:'',
-      policy:'',
-      participantNamet: '',
-      guardianNamet: '',
-      datet:'',
-      // initialized to false
-      shouldShowSignIn: false,
-      // initialized to false
-      shouldShowSignOut: false,
-      // initialized to false
-      shouldShowSignWaiver: false
+      isVaccinated: false, // initialized to false
+      isNotVaccinated: false, // initialized to false
+    }
+  },
+  computed: {
+    isFormUntouched() {
+      return this.isVaccinated == false &&  this.isNotVaccinated == false;
+    }
+  },
+  methods: {
+    selectVaccinated() {
+      this.isVaccinated = true;
+    },
+    selectNotVaccinated() {
+      this.isNotVaccinated = true;
     }
   }
 }
