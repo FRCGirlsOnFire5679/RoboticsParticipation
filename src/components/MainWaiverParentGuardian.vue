@@ -1,7 +1,7 @@
 <template>
     <form>
       <!-- Form Example (submitting currently does nothing with the data) -->
-      <h2>Please Complete the Waiver</h2>
+      <h2>Waiver and Release of Liability</h2>
       <section class="form-inputs-container">
         <div class="input-container">
             <label for="main-waiver-participant-name">Participant Name (required)</label>
