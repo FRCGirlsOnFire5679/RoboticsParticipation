@@ -2,7 +2,6 @@
     <form>
       <!-- Form Example (submitting currently does nothing with the data) -->
       <h2 v-if="isFormUntouched">Please select who is completing these waivers to start:</h2>
-      <section class="form-inputs-container">
         <section v-if="isFormUntouched">
           <div class="action-container">
             <button @click.prevent="selectAmParentGuardian">I am the Parent / Guardian of a Participant</button>
@@ -14,7 +13,6 @@
           <MainWaiverOver18Participant v-if="isOver18Participant" />
           <Covid19WaiverContainer />
         </section>
-      </section>
     </form>
 </template>
 

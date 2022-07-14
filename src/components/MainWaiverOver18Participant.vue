@@ -29,7 +29,7 @@
                     name="main-waiver-emergency-contact-phone" />
         </div>
         <MainWaiverAgreement></MainWaiverAgreement>
-        <div>
+        <div class="checkbox-container">
             <input type="checkbox" v-model="isWaiverAgreedTo"
                     id="main-waiver-agree-to-waiver"
                     name="main-waiver-agree-to-waiver" />
@@ -70,7 +70,7 @@ form {
   align-items: center;
 }
 .form-inputs-container {
-  max-width: 30em;
+  max-width: 50em;
 }
 div.input-container {
   margin: 1em;
@@ -78,11 +78,9 @@ div.input-container {
   flex-direction: column;
   align-items: flex-start;
 }
-.name-input {
-  width: 30em;
-}
-.action-container {
+div.checkbox-container {
   display: flex;
-  justify-content: space-between;
+  text-align: left;
+  align-items: flex-start;
 }
 </style>
