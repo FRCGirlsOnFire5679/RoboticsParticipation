@@ -2,34 +2,73 @@
     <form>
       <!-- Form Example (submitting currently does nothing with the data) -->
       <h2>COVID-19 Policy</h2>
-      <h3>Masks</h3>
+    <h3>Masks</h3>
       <ul>
         <li>Requirement for masks will be dictated by CDC (United States Centers for Disease Control and Prevention) recommendations, FIRST (For Inspiration and Recognition in Science and Technology) policy, local policy, and museum policy, deferring to whichever requirement is most strict</li>
-      <br>
       <li>In cases when masks are required</li>
-      <br>
+      <ul>
+        <li>Masks are required to be worn by all people (ages over 3) at all times</li>
           <li>N95/KN95/KF94 masks are recommended</li>
-          <br>
+          </ul>
           <li>Masks should be tightly woven and well-fitting — they must fit—and stay—over your nose and mouth, with no gaps on the sides, top or bottom</li>
-          <br>
           <li>Masks must not have exhalation valves or vents</li>
-          <br>
           <li>Staff and mentors may require you to replace your mask with another at their discretion</li>
-          <br>
           <li>Things that do NOT qualify as adequate protection:</li>
-          <br>
+          <ul>
           <li>Face shields alone (can be worn for added protection above and beyond mask)</li>
-          <br>
           <li>Bandanas/scarves</li>
-          <br>
           <li>Ski masks/balaclavas</li>
-          <br>
           <li>Neck gaiters</li>
-          <br>
           <li>Masks with visible holes, including mesh or lace</li>
-          <br>
+          </ul>
           <li>If wearing a cloth mask, consider double masking</li>
+          <img :src="image">
+          <li>Even in cases when masks are not required, disposable masks will be available on request</li>
       </ul>
+     <h3>Vaccines</h3>
+      <ul>
+          <li>Everyone who is eligible should be fully vaccinated including booster dose at the time they are eligible for booster in order to participate in person</li>
+          <img :src="boosterImage">
+          <li>ALL attendees/participants are required to be fully vaccinated and, if eligible, boosted 2 weeks or longer before attending a meeting/event in person</li>
+          <li>If you have been in contact with someone who has tested positive to COVID-19 (regardless of your vaccination status), prior to attending your next meeting/event you must</li>
+          <ul>
+          <li>Have 2 negative OTC tests OR</li>
+          <li>Have 1 negative PCR test OR</li>
+          <li>Not attend in person for at least 10 days from contact</li>
+          </ul>
+          <li>If you are unable to be vaccinated, you must have a negative test from within 3 days prior to attending an in-person meeting/event</li>
+      </ul>
+      <h3>Food/drink</h3>
+      <ul>
+        <li>Recommend eating/drinking outside or in the FoodWorks area</li>
+        <li>In cases when masks are required</li>
+        <ul>
+        <li>Can eat/drink outside, must be 6 ft apar</li>
+        <li>Can eat/drink inside in FoodWorks area, 6 ft apart, in a group of no more than 6 robotics folks</li>
+        </ul>
+      <h3>Contact tracing</h3>
+      <ul>
+        <li>Must sign in to meeting/event</li>
+        <li>Must be officially signed up with contact info in FIRST Dashboard and/or have contact info registered with the team</li>
+        <li>If you’ve attended a robotics meeting/event and had a positive COVID-19 test following that meeting/event, notify engineering@kaleideum.org so that contacts can be informed that they have had a positive contact (names of those with a positive test will not be shared by mentors/staff unless someone requests their own name be shared; only notification that someone was in contact with a person who had a positive COVID-19 test result)</li>
+      </ul>
+      <h3>Additional Information</h3>
+      <ul>
+        <li>Sanitizer and cleaning supplies will be available</li>
+        <li>Information regarding healthy practices will be posted</li>
+        <li>Physical distancing of 6 ft or more between attendees is encouraged where possible</li>
+        <li>Stay home if you:</li>
+        <ul>
+        <li>Have tested positive for COVID-19 within 72 hours</li>
+        <li>Are awaiting COVID-19 test results due to symptoms or exposure</li>
+        <li>Are feeling unwell or have symptoms</li>
+        <li>Are a known contact of someone who has tested positive or had symptoms of COVID-19 within the last 14 days, unless you are fully vaccinated and boosted</li>
+        </ul>
+        <li>Fully remote meetings may resume depending on various statistics – statistics will be shared if a meeting is made fully remote</li>
+      </ul>
+      </ul>
+      <p>*This policy may be updated at the discretion of staff/mentors at any time, and will be posted if/when it is updated</p>
+      <p>** If support with acquiring COVID-19 tests is needed, please contact a staff member/mentor for assistance</p>
       <section class="form-inputs-container">
         <section>
           <p>policy text</p>
@@ -68,7 +107,9 @@ export default {
   data(){
     return {
       agreeToCovid19Waiver: false,
-      vaccinationStatus: ''
+      vaccinationStatus: '',
+      image: 'https://www.bing.com/images/blob?bcid=Tikujby6T2cE1w',
+      boosterImage:'https://www.bing.com/images/blob?bcid=TjXU2.ge9WgEOw'
     }
   }
 }
@@ -97,5 +138,8 @@ div.waiver__input-container {
 .action-container {
   display: flex;
   justify-content: space-between;
+}
+ul {
+text-align: left;
 }
 </style>
