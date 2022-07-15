@@ -2,19 +2,19 @@
     <form>
       <!-- Form Example (submitting currently does nothing with the data) -->
       <h2>COVID-19 Policy</h2>
-    <h3>Masks</h3>
+      <h3>Masks</h3>
       <ul>
-        <li>Requirement for masks will be dictated by CDC (United States Centers for Disease Control and Prevention) recommendations, FIRST (For Inspiration and Recognition in Science and Technology) policy, local policy, and museum policy,<strong>deferring to whichever requirement is most strict</strong></li>
-      <li><strong>In cases when masks are required</strong></li>
-      <ul>
-        <li>Masks are required to be worn by all people (ages over 3) at all times</li>
+        <li>Requirement for masks will be dictated by CDC (United States Centers for Disease Control and Prevention) recommendations, FIRST (For Inspiration and Recognition in Science and Technology) policy, local policy, and museum policy, deferring to whichever requirement is most strict</li>
+        <li>In cases when masks are required</li>
+        <ul>
+          <li>Masks are required to be worn by all people (ages over 3) at all times</li>
           <li>N95/KN95/KF94 masks are recommended</li>
-          </ul>
-          <li>Masks should be tightly woven and well-fitting — they must fit—and stay—over your nose and mouth, with no gaps on the sides, top or bottom</li>
-          <li>Masks must not have exhalation valves or vents</li>
-          <li>Staff and mentors may require you to replace your mask with another at their discretion</li>
-          <li>Things that do <strong>NOT</strong> qualify as adequate protection:</li>
-          <ul>
+        </ul>
+        <li>Masks should be tightly woven and well-fitting — they must fit—and stay—over your nose and mouth, with no gaps on the sides, top or bottom</li>
+        <li>Masks must not have exhalation valves or vents</li>
+        <li>Staff and mentors may require you to replace your mask with another at their discretion</li>
+        <li>Things that do NOT qualify as adequate protection:</li>
+        <ul>
           <li>Face shields alone (can be worn for added protection above and beyond mask)</li>
           <li>Bandanas/scarves</li>
           <li>Ski masks/balaclavas</li>
@@ -34,7 +34,7 @@
 
           <li>Even in cases when masks are not required, <strong><mark>disposable masks will be available on request</mark></strong></li>
       </ul>
-     <h3>Vaccines</h3>
+      <h3>Vaccines</h3>
       <ul>
           <li>Everyone who is eligible should be fully vaccinated <strong>including booster</strong> dose at the time they are eligible for booster in order to participate in person</li>
           <figure>
@@ -58,9 +58,12 @@
         <li>Recommend eating/drinking outside or in the FoodWorks area</li>
         <li><strong>In cases when masks are required</strong></li>
         <ul>
-        <li>Can eat/drink <strong>outside</strong>, must be 6 ft apar</li>
-        <li>Can eat/drink inside in <strong>FoodWorks</strong> area, 6 ft apart, in a group of no more than 6 robotics folks</li>
+          <li>Can eat/drink <strong>outside</strong>, must be 6 ft apar</li>
+          <li>Can eat/drink inside in <strong>FoodWorks</strong> area, 6 ft apart, in a group of no more than 6 robotics folks</li>
+          <li>Can eat/drink outside, must be 6 ft apar</li>
+          <li>Can eat/drink inside in FoodWorks area, 6 ft apart, in a group of no more than 6 robotics folks</li>
         </ul>
+      </ul>
       <h3>Contact tracing</h3>
       <ul>
         <li>Must sign in to meeting/event</li>
@@ -74,13 +77,12 @@
         <li>Physical distancing of 6 ft or more between attendees is encouraged where possible</li>
         <li>Stay home if you:</li>
         <ul>
-        <li>Have tested positive for COVID-19 within 72 hours</li>
-        <li>Are awaiting COVID-19 test results due to symptoms or exposure</li>
-        <li>Are feeling unwell or have symptoms</li>
-        <li>Are a known contact of someone who has tested positive or had symptoms of COVID-19 within the last 14 days, unless you are fully vaccinated and boosted</li>
+          <li>Have tested positive for COVID-19 within 72 hours</li>
+          <li>Are awaiting COVID-19 test results due to symptoms or exposure</li>
+          <li>Are feeling unwell or have symptoms</li>
+          <li>Are a known contact of someone who has tested positive or had symptoms of COVID-19 within the last 14 days, unless you are fully vaccinated and boosted</li>
         </ul>
         <li>Fully remote meetings may resume depending on various statistics – statistics will be shared if a meeting is made fully remote</li>
-      </ul>
       </ul>
       <p>*This policy may be updated at the discretion of staff/mentors at any time, and will be posted if/when it is updated</p>
       <p>** If support with acquiring COVID-19 tests is needed, please contact a staff member/mentor for assistance</p>
@@ -104,10 +106,8 @@
               id="attest-to-testing-requirements"
               name="attest-to-testing-requirements"/>
             <label for="attest-to-testing-requirements">I have not been both fully vaccinated, and boosted if eligible, at this time, and agree to abide by testing requirements (or I attest as a parent/guardian that my child participant has not been both fully vaccinated and boosted at this time, and agree to abide by testing requirements)</label>
-          </div>
-             
+          </div>    
         </section>
-
     </form>
     
 </template>
@@ -141,7 +141,7 @@ form {
   align-items: center;
 }
 .form-inputs-container {
-  max-width: 30em;
+  max-width: 50em;
 }
 div.waiver__input-container {
   margin: 1em;

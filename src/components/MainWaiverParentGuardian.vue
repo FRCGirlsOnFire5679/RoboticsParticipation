@@ -1,7 +1,7 @@
 <template>
     <form>
       <!-- Form Example (submitting currently does nothing with the data) -->
-      <h2>Please Complete the Waiver</h2>
+      <h2>Waiver and Release of Liability</h2>
       <section class="form-inputs-container">
         <div class="input-container">
             <label for="main-waiver-participant-name">Participant Name (required)</label>
@@ -41,12 +41,15 @@
                     name="main-waiver-emergency-contact-phone" />
         </div>
         <MainWaiverAgreement></MainWaiverAgreement>
-        <div>
+        <div class="checkbox-container">
            <input type="checkbox" v-model="isWaiverAgreedTo"
                     id="main-waiver-agree-to-waiver"
                     name="main-waiver-agree-to-waiver" />
-            <label for="main-waiver-agree-to-waiver">The Parent/Guardian of a Participant under 18 years of age has read this document and understands that this Waiver and Release of Liability includes a waiver of the right to make injury claims that is intended to be legally binding. By checking this box, the Parent/Guardian of a Participant under 18 years of age agrees to this Waiver and Release of Liability (required)</label>
-           
+            <label for="main-waiver-agree-to-waiver">
+              <strong>
+                The Parent/Guardian of a Participant under 18 years of age has read this document and understands that this Waiver and Release of Liability includes a waiver of the right to make injury claims that is intended to be legally binding. By checking this box, the Parent/Guardian of a Participant under 18 years of age agrees to this Waiver and Release of Liability (required)
+              </strong>
+            </label>
         </div>
         
       </section>
@@ -89,7 +92,7 @@ form {
   align-items: center;
 }
 .form-inputs-container {
-  max-width: 30em;
+  max-width: 50em;
 }
 div.input-container {
   margin: 1em;
@@ -97,11 +100,9 @@ div.input-container {
   flex-direction: column;
   align-items: flex-start;
 }
-.name-input {
-  width: 30em;
-}
-.action-container {
+div.checkbox-container {
   display: flex;
-  justify-content: space-between;
+  text-align: left;
+  align-items: flex-start;
 }
 </style>
