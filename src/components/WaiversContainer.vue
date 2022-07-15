@@ -9,9 +9,9 @@
           </div>
         </section>
         <section v-if="!isFormUntouched">
-          <MainWaiverParentGuardian v-if="isParentGuardian" />
-          <MainWaiverOver18Participant v-if="isOver18Participant" />
-          <Covid19WaiverContainer />
+          <MainWaiverParentGuardian v-if="isParentGuardian && !isMainWaiverComplete" @main-waiver-completed="setMainWaiverComplete" /> <!-- will emit an event to the parent when waiver is complete -->
+          <MainWaiverOver18Participant v-if="isOver18Participant && !isMainWaiverComplete" /> <!-- will emit an event to the parent when waiver is complete -->
+          <Covid19WaiverContainer v-if="isMainWaiverComplete" /> <!--We will want to use a variable to decide show/hide based on mainWaiverCompleted -->
         </section>
     </form>
 </template>
@@ -35,6 +35,7 @@ export default {
     return {
       isParentGuardian: false, // initialized to false
       isOver18Participant: false, // initialized to false
+      isMainWaiverComplete: false, // initialized to false
     }
   },
   computed: {
@@ -48,6 +49,9 @@ export default {
     },
     selectAmOver18Participant() {
       this.isOver18Participant = true;
+    },
+    setMainWaiverComplete() {
+      this.isMainWaiverComplete = true;
     }
   }
 }
