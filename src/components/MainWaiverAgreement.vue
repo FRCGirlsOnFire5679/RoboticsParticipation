@@ -14,6 +14,7 @@
     </ol>
 </p>
 <button @click="evaluateMainWaiver">Agree and Submit</button>
+
 <!-- add errors that we show conditionally, depending on how evaluateMainWaiver() results -->
 </section>
 </template>
@@ -25,11 +26,13 @@ export default {
   name: 'MainWaiverAgreement',
   data(){
     return {
-      
+
           }
   },
   methods: {
     evaluateMainWaiver() {
+     
+
       // disable button so it can't be pressed a bunch in a row
       // confirm all fields that are required have data
       // if they don't have data, then show an error

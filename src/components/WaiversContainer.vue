@@ -9,9 +9,10 @@
           </div>
         </section>
         <section v-if="!isFormUntouched">
-          <MainWaiverParentGuardian v-if="isParentGuardian && !isMainWaiverComplete" @main-waiver-completed="setMainWaiverComplete" /> <!-- will emit an event to the parent when waiver is complete -->
-          <MainWaiverOver18Participant v-if="isOver18Participant && !isMainWaiverComplete" /> <!-- will emit an event to the parent when waiver is complete -->
-          <Covid19WaiverContainer v-if="isMainWaiverComplete" /> <!--We will want to use a variable to decide show/hide based on mainWaiverCompleted -->
+          <MainWaiverParentGuardian v-if="isParentGuardian" />
+          <MainWaiverOver18Participant v-if="isOver18Participant" />
+          <Covid19WaiverContainer/>
+          <MainWaiverAgreement v-if="agreeAndSubmit"/>
         </section>
     </form>
 </template>
@@ -20,12 +21,13 @@
 import MainWaiverParentGuardian from './MainWaiverParentGuardian.vue'
 import MainWaiverOver18Participant from './MainWaiverOver18Participant.vue';
 import Covid19WaiverContainer from './Covid19WaiverContainer.vue'
-
+import MainWaiverAgreement from './MainWaiverAgreement.vue'
 export default {
   components: {
     Covid19WaiverContainer,
     MainWaiverParentGuardian,
-    MainWaiverOver18Participant
+    MainWaiverOver18Participant,
+    MainWaiverAgreement
 },
   name: 'WaiversContainer',
   props: {
@@ -35,7 +37,6 @@ export default {
     return {
       isParentGuardian: false, // initialized to false
       isOver18Participant: false, // initialized to false
-      isMainWaiverComplete: false, // initialized to false
     }
   },
   computed: {
@@ -50,11 +51,12 @@ export default {
     selectAmOver18Participant() {
       this.isOver18Participant = true;
     },
-    setMainWaiverComplete() {
-      this.isMainWaiverComplete = true;
+      selectAgreeAndSubmit() {
+      this.agreeAndSubmit = false;
+      }
     }
   }
-}
+
 
 </script>
 
