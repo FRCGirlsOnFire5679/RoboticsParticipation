@@ -74,7 +74,7 @@ export default {
       signerEmail: '',
       isWaiverAgreedTo: false,
       emergencyContactName: '',
-      emergencyContactPhone: ''
+      emergencyPhone: ''
     }
   },
 }

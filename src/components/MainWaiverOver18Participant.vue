@@ -53,6 +53,10 @@ export default {
   },
   data(){
     return {
+      participantName : '',
+      participantEmail : '',
+      emergencyContact : '',
+      emergencyPhone : '',
     }
   },
 }
