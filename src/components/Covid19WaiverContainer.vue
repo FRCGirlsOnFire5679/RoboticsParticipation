@@ -2,6 +2,7 @@
     <form>
       <!-- Form Example (submitting currently does nothing with the data) -->
       <h2>COVID-19 Policy</h2>
+      <fieldset id="covidpolicy">
       <h3>Masks</h3>
       <ul>
         <li>Requirement for masks will be dictated by CDC (United States Centers for Disease Control and Prevention) recommendations, FIRST (For Inspiration and Recognition in Science and Technology) policy, local policy, and museum policy, deferring to whichever requirement is most strict</li>
@@ -26,7 +27,8 @@
             <img src="./../assets/better-fitting-mask-info.png" 
                   id="masking-instructions__recommendations-image" 
                   alt="An infographic describing ways to have a better fit and extra protection with cloth and disposable masks" 
-                  aria-describedby="masking-instructions__recommendations-image-description">
+                  aria-describedby="masking-instructions__recommendations-image-description"
+                  class="image-fit">
                   <figcaption class="sr-only" id="masking-instructions__recommendations-image-description">
                     An infographic that says 'ways to have a better fit and extra protection with cloth and disposable masks: wear two masks (disposable mask worn underneath and cloth mask on top), combine either a cloth mask or disposable mask with a fitter or brace, knot and tuck ear loops of a 3-ply mask where they join the edge of the mask - for disposable procedure masks, fold and tuck the unneeded material under the edges (for instructions see https://youtu.be/GzTAZDsNBe0), use masks that attach behind the neck and head with either elastic bands or ties (instead of ear loops)'. The infographic also shows good examples of mask wearing (disposable mask under cloth mask, and alternatively a cloth mask with a fitter). Finally, the infographic shows knotting the ear loops of masks for a better fit, folding and tucking in unneeded material for a better fit, and then checking for a close fit
                   </figcaption>
@@ -41,7 +43,8 @@
             <img src="./../assets/different-vaccination-types.png" 
                   id="vaccines__types-image" 
                   alt="An infographic describing Covid-19 booster shot recommendations"
-                  aria-describedby="vaccines__types-image-description">
+                  aria-describedby="vaccines__types-image-description"
+                  class="image-fit">
                   <figcaption class="sr-only" id="vaccines__types-image-description">Moderna 5 months after second dose; Pfizer 5 months after second dose; Johnson & Johnson 2 months after single dose. Get boosted</figcaption>
           </figure>
           <li>ALL attendees/participants are required to be fully vaccinated and, if eligible, boosted 2 weeks or longer before attending a meeting/event in person</li>
@@ -108,6 +111,7 @@
             <label for="attest-to-testing-requirements">I have not been both fully vaccinated, and boosted if eligible, at this time, and agree to abide by testing requirements (or I attest as a parent/guardian that my child participant has not been both fully vaccinated and boosted at this time, and agree to abide by testing requirements)</label>
           </div>    
         </section>
+        </fieldset>
     </form>
     
 </template>
@@ -147,7 +151,7 @@ div.waiver__input-container {
   margin: 1em;
   display: flex;
   align-items: flex-start;
-  text-align: left;
+  text-align: center;
 }
 .action-container {
   display: flex;
@@ -164,5 +168,10 @@ text-align: left;
   position: absolute;
   white-space: nowrap; 
   width: 1px;
+}
+.image-fit {
+height: 35%;
+width: 35%;
+object-fit: cover;
 }
 </style>

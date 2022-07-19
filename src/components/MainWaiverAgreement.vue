@@ -13,6 +13,7 @@
         </li>
     </ol>
 </p>
+
 <button @click="evaluateMainWaiver">Agree and Submit</button>
 
 <!-- add errors that we show conditionally, depending on how evaluateMainWaiver() results -->
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+
 
 export default {
   emits: ['mainWaiverCompleted'],
@@ -31,8 +33,16 @@ export default {
   },
   methods: {
     evaluateMainWaiver() {
-     
-
+     this.mainWaiverCompleted = true;
+     if(this.mainWaiverAgreement){
+      this.emit('mainWaiverCompleted');
+     }
+     else{
+     this.error = true;
+    }
+      {
+      this.submit();
+    }
       // disable button so it can't be pressed a bunch in a row
       // confirm all fields that are required have data
       // if they don't have data, then show an error

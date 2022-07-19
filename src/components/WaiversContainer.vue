@@ -6,12 +6,13 @@
           <div class="action-container">
             <button @click.prevent="selectAmParentGuardian">I am the Parent / Guardian of a Participant</button>
             <button @click.prevent="selectAmOver18Participant">I am a Participant who is 18 years old or older</button>
+            
           </div>
         </section>
         <section v-if="!isFormUntouched">
           <MainWaiverParentGuardian v-if="isParentGuardian" />
           <MainWaiverOver18Participant v-if="isOver18Participant" />
-          <Covid19WaiverContainer/>
+          <Covid19WaiverContainer />
           <MainWaiverAgreement v-if="agreeAndSubmit"/>
         </section>
     </form>
@@ -37,11 +38,12 @@ export default {
     return {
       isParentGuardian: false, // initialized to false
       isOver18Participant: false, // initialized to false
+      agreeAndSubmit: false, 
     }
   },
   computed: {
     isFormUntouched() {
-      return this.isParentGuardian == false &&  this.isOver18Participant == false;
+      return this.isParentGuardian == false &&  this.isOver18Participant == false && this.agreeAndSubmit == false;
     }
   },
   methods: {
