@@ -151,7 +151,7 @@ div.waiver__input-container {
   margin: 1em;
   display: flex;
   align-items: flex-start;
-  text-align: center;
+  text-align: left;
 }
 .action-container {
   display: flex;

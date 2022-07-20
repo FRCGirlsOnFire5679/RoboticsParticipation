@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form ref="form" @submit="handleSubmitEvent">
       <!-- Form Example (submitting currently does nothing with the data) -->
       <h2>Waiver and Release of Liability</h2>
       <section class="form-inputs-container">
@@ -13,36 +13,41 @@
         <div class="input-container">
             <label for="main-waiver-parent-guardian-name">Parent/Guardian name (required)</label>
             <input type="text" v-model.trim="parentGuardianName"
+            required
                     id="main-waiver-parent-guardian-name"
                     name="main-waiver-parent-guardian-name" />
         </div>
         <div class="input-container">
             <label for="main-waiver-participant-date-of-birth">Participant date of birth (required)</label>
             <input type="date" v-model.trim="dob"
+            required
                     id="main-waiver-participant-date-of-birth"
                     name="main-waiver-participant-date-of-birth" />
         </div>
         <div class="input-container">
             <label for="main-waiver-parent-guardian-email">Parent/Guardian email (required)</label>
             <input type="text" v-model.trim="signerEmail"
+            required
                     id="main-waiver-parent-guardian-email"
                     name="main-waiver-parent-guardian-email" />
         </div>
         <div class="input-container">
             <label for="main-waiver-emergency-contact-name">Emergency contact name (required)</label>
             <input type="text" v-model.trim="emergencyContactName"
+            required
                     id="main-waiver-emergency-contact-name"
                     name="main-waiver-emergency-contact-name" />
         </div>
         <div class="input-container">
             <label for="main-waiver-emergency-contact-phone">Emergency contact phone (required)</label>
             <input type="text" v-model.trim="emergencyPhone"
+            required
                     id="main-waiver-emergency-contact-phone"
                     name="main-waiver-emergency-contact-phone" />
         </div>
-        <MainWaiverAgreement></MainWaiverAgreement>
         <div class="checkbox-container">
            <input type="checkbox" v-model="isWaiverAgreedTo"
+           required
                     id="main-waiver-agree-to-waiver"
                     name="main-waiver-agree-to-waiver" />
             <label for="main-waiver-agree-to-waiver">
@@ -51,6 +56,8 @@
               </strong>
             </label>
         </div>
+
+        <MainWaiverAgreement :disableBtn="disableBtn"></MainWaiverAgreement>
         
       </section>
     </form>
@@ -74,9 +81,23 @@ export default {
       signerEmail: '',
       isWaiverAgreedTo: false,
       emergencyContactName: '',
-      emergencyPhone: ''
+      emergencyPhone: '',
+      disableBtn: false, 
     }
   },
+  methods: {
+    handleSubmitEvent(e) {
+      this.disableBtn = true;
+      e.preventDefault();
+      console.log('participantName::', this.participantName);
+      console.log('parentGuardianName::', this.parentGuardianName);
+      console.log('dob::', this.dob);
+      console.log('signerEmail::', this.signerEmail);
+      console.log('isWaiverAgreedTo::', this.isWaiverAgreedTo);
+      console.log('emergencyContactName::', this.emergencyContactName);
+      console.log('emergencyPhone::', this.emergencyPhone);
+    }
+  }
 }
 
 </script>

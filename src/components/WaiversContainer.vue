@@ -12,10 +12,11 @@
         <section v-if="!isFormUntouched">
           <MainWaiverParentGuardian v-if="isParentGuardian" />
           <MainWaiverOver18Participant v-if="isOver18Participant" />
-          <Covid19WaiverContainer />
           <MainWaiverAgreement v-if="agreeAndSubmit"/>
+          <Covid19WaiverContainer/>
         </section>
     </form>
+    
 </template>
 
 <script>
