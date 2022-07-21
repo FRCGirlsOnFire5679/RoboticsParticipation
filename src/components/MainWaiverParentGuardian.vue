@@ -45,6 +45,7 @@
                     id="main-waiver-emergency-contact-phone"
                     name="main-waiver-emergency-contact-phone" />
         </div>
+        <MainWaiverAgreement :disableBtn="disableBtn"></MainWaiverAgreement>
         <div class="checkbox-container">
            <input type="checkbox" v-model="isWaiverAgreedTo"
            required
@@ -57,7 +58,7 @@
             </label>
         </div>
 
-        <MainWaiverAgreement :disableBtn="disableBtn"></MainWaiverAgreement>
+        
         
       </section>
     </form>
@@ -73,6 +74,7 @@ export default {
   props: {
     msg: String
   },
+  emits: ['next'],
   data(){
     return {
       participantName: '',
@@ -96,6 +98,7 @@ export default {
       console.log('isWaiverAgreedTo::', this.isWaiverAgreedTo);
       console.log('emergencyContactName::', this.emergencyContactName);
       console.log('emergencyPhone::', this.emergencyPhone);
+      this.$emit('next');
     }
   }
 }

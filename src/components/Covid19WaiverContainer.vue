@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form @submit="handleSubmitEvent">
       <!-- Form Example (submitting currently does nothing with the data) -->
       <h2>COVID-19 Policy</h2>
       <fieldset id="covidpolicy">
@@ -112,6 +112,8 @@
           </div>    
         </section>
         </fieldset>
+
+        <button type="submit">submit</button>
     </form>
     
 </template>
@@ -128,6 +130,14 @@ export default {
       isHidden: true,
       agreeToCovid19Waiver: false,
       vaccinationStatus: '',
+    }
+  },
+  methods: {
+    handleSubmitEvent(e) {
+      e.preventDefault();
+      console.log('isHidden::', this.isHidden);
+      console.log('agreeToCovid19Waiver::', this.agreeToCovid19Waiver);
+      console.log('vaccinationStatus::', this.vaccinationStatus);
     }
   }
 }

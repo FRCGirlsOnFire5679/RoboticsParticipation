@@ -10,10 +10,10 @@
           </div>
         </section>
         <section v-if="!isFormUntouched">
-          <MainWaiverParentGuardian v-if="isParentGuardian" />
+          <MainWaiverParentGuardian v-if="isParentGuardian && step == 1" @next="handleNextEvent" />
           <MainWaiverOver18Participant v-if="isOver18Participant" />
           <MainWaiverAgreement v-if="agreeAndSubmit"/>
-          <Covid19WaiverContainer/>
+          <Covid19WaiverContainer v-if="step == 2"/>
         </section>
     </form>
     
@@ -40,6 +40,7 @@ export default {
       isParentGuardian: false, // initialized to false
       isOver18Participant: false, // initialized to false
       agreeAndSubmit: false, 
+      step: 1
     }
   },
   computed: {
@@ -56,8 +57,12 @@ export default {
     },
       selectAgreeAndSubmit() {
       this.agreeAndSubmit = false;
-      }
+      },
+    handleNextEvent() {
+      this.step = 2;
     }
+    },
+
   }
 
 
