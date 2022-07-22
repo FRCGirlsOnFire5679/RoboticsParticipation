@@ -98,6 +98,31 @@ export default {
       console.log('isWaiverAgreedTo::', this.isWaiverAgreedTo);
       console.log('emergencyContactName::', this.emergencyContactName);
       console.log('emergencyPhone::', this.emergencyPhone);
+      let name = 'Rob';
+      let message = 'hi';
+      let email = 'ty@email.com';
+      let color = 'red';
+      let data = {name, message, email, color};
+      console.log(data);
+      let url = "https://script.google.com/macros/s/AKfycby9H0h1aK3VwdUXI5j7QhyUtOVkTx0hHEpminclPTLyXGGaP2-oUm-1a4l-xjMOjTIe/exec";
+      let xhr = new XMLHttpRequest();
+      xhr.open('POST', url);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.status);
+            console.log(xhr)
+            // TODO: reset form
+            // TODO: display confirmation message
+          }
+      };
+      // url encode form data for sending as post data
+      let encoded = Object.keys(data).map(function(k) {
+          return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      }).join('&');
+      console.log(encoded);
+      xhr.send(encoded);
+
       this.$emit('next');
     }
   }
