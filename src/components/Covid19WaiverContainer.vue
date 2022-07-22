@@ -125,6 +125,7 @@ export default {
   props: {
     msg: String
   },
+  emits: ['next'],
   data(){
     return {
       isHidden: true,
@@ -138,6 +139,7 @@ export default {
       console.log('isHidden::', this.isHidden);
       console.log('agreeToCovid19Waiver::', this.agreeToCovid19Waiver);
       console.log('vaccinationStatus::', this.vaccinationStatus);
+      this.$emit('next');
     }
   }
 }

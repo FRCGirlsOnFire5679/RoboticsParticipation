@@ -11,9 +11,10 @@
         </section>
         <section v-if="!isFormUntouched">
           <MainWaiverParentGuardian v-if="isParentGuardian && step == 1" @next="handleNextEvent" />
-          <MainWaiverOver18Participant v-if="isOver18Participant" />
-          <MainWaiverAgreement v-if="agreeAndSubmit"/>
-          <Covid19WaiverContainer v-if="step == 2"/>
+          <MainWaiverOver18Participant v-if="isOver18Participant && step == 1" @next="handleNextEvent" />
+          <MainWaiverAgreement v-if="agreeAndSubmit" />
+          <Covid19WaiverContainer v-if="step == 2" @next="handleNextEvent"/>
+          <ThankYou v-if="step == 3"/>
         </section>
     </form>
     
@@ -24,12 +25,14 @@ import MainWaiverParentGuardian from './MainWaiverParentGuardian.vue'
 import MainWaiverOver18Participant from './MainWaiverOver18Participant.vue';
 import Covid19WaiverContainer from './Covid19WaiverContainer.vue'
 import MainWaiverAgreement from './MainWaiverAgreement.vue'
+import ThankYou from './ThankYou.vue'
 export default {
   components: {
     Covid19WaiverContainer,
     MainWaiverParentGuardian,
     MainWaiverOver18Participant,
-    MainWaiverAgreement
+    MainWaiverAgreement,
+    ThankYou
 },
   name: 'WaiversContainer',
   props: {
@@ -59,7 +62,7 @@ export default {
       this.agreeAndSubmit = false;
       },
     handleNextEvent() {
-      this.step = 2;
+      this.step++;
     }
     },
 

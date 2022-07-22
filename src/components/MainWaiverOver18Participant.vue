@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form ref="form" @submit="handleSubmitEvent">
       <!-- Form Example (submitting currently does nothing with the data) -->
       <h2>Waiver and Release of Liability</h2>
       <section class="form-inputs-container">
@@ -31,7 +31,7 @@
                     id="main-waiver-emergency-contact-phone"
                     name="main-waiver-emergency-contact-phone" />
         </div>
-        <MainWaiverAgreement></MainWaiverAgreement>
+        <MainWaiverAgreement :disableBtn="disableBtn"></MainWaiverAgreement>
         <div class="checkbox-container">
             <input type="checkbox" v-model="isWaiverAgreedTo"
                     required
@@ -55,16 +55,34 @@ export default {
   props: {
     msg: String
   },
+  emits: ['next'],
   data(){
     return {
-      participantName : '',
-      participantEmail : '',
-      emergencyContact : '',
-      emergencyPhone : '',
-      validateForm: '',    }
-  },
+     participantName: '',
+      parentGuardianName: '',
+      dob: '',
+      signerEmail: '',
+      isWaiverAgreedTo: false,
+      emergencyContactName: '',
+      emergencyPhone: '',
+      disableBtn: false,    
+  }
+},
+ methods: {
+    handleSubmitEvent(e) {
+      this.disableBtn = true;
+      e.preventDefault();
+      console.log('participantName::', this.participantName);
+      console.log('parentGuardianName::', this.parentGuardianName);
+      console.log('dob::', this.dob);
+      console.log('signerEmail::', this.signerEmail);
+      console.log('isWaiverAgreedTo::', this.isWaiverAgreedTo);
+      console.log('emergencyContactName::', this.emergencyContactName);
+      console.log('emergencyPhone::', this.emergencyPhone);
+      this.$emit('next');
+        }
+  }
 }
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
