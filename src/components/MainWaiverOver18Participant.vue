@@ -47,6 +47,8 @@
 
 <script>
 import MainWaiverAgreement from './MainWaiverAgreement.vue'
+import callSheetAPI from '../utils/api.js'
+
 export default {
   components: {
     MainWaiverAgreement
@@ -79,8 +81,21 @@ export default {
       console.log('isWaiverAgreedTo::', this.isWaiverAgreedTo);
       console.log('emergencyContactName::', this.emergencyContactName);
       console.log('emergencyPhone::', this.emergencyPhone);
+
+      let data = {
+        particpantName: this.participantName,
+        parentGuardianName: this.parentGuardianName,
+        dob: this.dob,
+        signerEmail: this.signerEmail,
+        isWaiverAgreedTo: this.isWaiverAgreedTo,
+        emergencyContactName: this.emergencyContactName,
+        emergencyPhone: this.emergencyPhone,
+      };
+      console.log(data);
+      callSheetAPI(data);
+
       this.$emit('next');
-        }
+    }
   }
 }
 </script>
