@@ -4,8 +4,8 @@
       <h2 v-if="isFormUntouched">Please select who is completing these waivers to start:</h2>
         <section v-if="isFormUntouched">
           <div class="action-container">
-            <button @click.prevent="selectAmParentGuardian">I am the Parent / Guardian of a Participant</button>
-            <button @click.prevent="selectAmOver18Participant">I am a Participant who is 18 years old or older</button>
+            <button @click.prevent="selectAmParentGuardian" class="primary-action">I am the Parent / Guardian of a Participant</button>
+            <button @click.prevent="selectAmOver18Participant" class="secondary-action">I am a Participant who is 18 years old or older</button>
             
           </div>
         </section>

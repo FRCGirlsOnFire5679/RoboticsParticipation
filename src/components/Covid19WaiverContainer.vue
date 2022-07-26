@@ -113,7 +113,7 @@
         </section>
         </fieldset>
 
-        <button type="submit">submit</button>
+        <button type="submit" class="primary-action">submit</button>
     </form>
     
 </template>

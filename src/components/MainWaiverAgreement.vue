@@ -14,16 +14,12 @@
     </ol>
 </p> 
 
-<!-- <button :disable="disableBtn" @click="evaluateMainWaiver">
-  {{disableBtn ? 'Please Wait...'  : 'Agree and Submit' }}
-</button> -->
 
-<button :disabled="disableBtn" type="submit">
+<button :disabled="disableBtn" type="submit" class="primary-action">
   {{ disableBtn ? 'Please Wait...'  : 'Agree and Submit' }}
 </button>
 
 
-<!-- add errors that we show conditionally, depending on how evaluateMainWaiver() results -->
 </section>
 </template>
 
@@ -47,21 +43,7 @@ export default {
   },
   methods: {
     evaluateMainWaiver() {
-    //  this.mainWaiverCompleted = true;
-    //  if(this.mainWaiverAgreement){
-    //   this.emit('mainWaiverCompleted');
-    //  }
-    //  else{
-    //  this.error = true;
-    // }
-    //   {
       this.$refs.form.submit();
-    // }
-      // disable button so it can't be pressed a bunch in a row
-      // confirm all fields that are required have data
-      // if they don't have data, then show an error
-      // if they do have data, "submit" that data for saving
-      // if they do have data, also this.$emit('mainWaiverCompleted')
     }
   }
  

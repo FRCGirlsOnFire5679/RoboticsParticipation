@@ -13,11 +13,8 @@
                     name="full-name"
                     v-model="signOutName" />
           </div>
-          <div class="action-container">
-            <input type="submit"
-                   value="Submit" />
-          </div>
         </section>
+        <button class="primary-action">Submit</button>
       </form>  
 </template>
 
@@ -54,9 +51,5 @@ div.input-container {
 }
 .name-input {
   width: 30em;
-}
-.action-container {
-  display: flex;
-  justify-content: space-between;
 }
 </style>
