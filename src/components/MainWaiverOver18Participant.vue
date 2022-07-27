@@ -61,11 +61,11 @@ export default {
   data(){
     return {
      participantName: '',
-      parentGuardianName: '',
+      participantEmail: '',
       dob: '',
       signerEmail: '',
       isWaiverAgreedTo: false,
-      emergencyContactName: '',
+      emergencyContact: '',
       emergencyPhone: '',
       disableBtn: false,    
   }
@@ -75,16 +75,16 @@ export default {
       this.disableBtn = true;
       e.preventDefault();
       console.log('participantName::', this.participantName);
-      console.log('parentGuardianName::', this.parentGuardianName);
+      console.log('participantEmail::', this.participantEmail);
       console.log('dob::', this.dob);
       console.log('signerEmail::', this.signerEmail);
       console.log('isWaiverAgreedTo::', this.isWaiverAgreedTo);
-      console.log('emergencyContactName::', this.emergencyContactName);
+      console.log('emergencyContact::', this.emergencyContact);
       console.log('emergencyPhone::', this.emergencyPhone);
 
       let data = {
         particpantName: this.participantName,
-        parentGuardianName: this.parentGuardianName,
+        participantEmail: this.participantEmail,
         dob: this.dob,
         signerEmail: this.signerEmail,
         isWaiverAgreedTo: this.isWaiverAgreedTo,
