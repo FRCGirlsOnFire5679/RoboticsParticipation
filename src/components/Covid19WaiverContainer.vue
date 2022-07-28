@@ -94,6 +94,7 @@
           
           <div class="waiver__input-container">
             <input type="checkbox" v-model="agreeToCovid19Waiver"
+            required
                     id="agree-to-covid19-waiver"
                     name="agree-to-covid19-waiver"/>
             <label for="agree-to-covid19-waiver">I agree to abide by this full policy (or I agree as a parent/guardian on behalf of a child participant)</label>
@@ -113,7 +114,7 @@
         </section>
         </fieldset>
 
-        <button type="submit" class="primary-action">submit</button>
+        <button type="submit" class="primary-action">Agree and Submit</button>
     </form>
     
 </template>
