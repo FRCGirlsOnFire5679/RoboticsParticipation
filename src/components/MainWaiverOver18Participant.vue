@@ -12,7 +12,7 @@
         </div>
         <div class="input-container">
             <label for="main-waiver-participant-email">Participant email (required)</label>
-            <input type="text" v-model.trim="participantEmail"
+            <input type="text" v-model.trim="signerEmail"
                     required
                     id="main-waiver-participant-email"
                     name="main-waiver-participant-email" />
@@ -61,7 +61,7 @@ export default {
   data(){
     return {
      participantName: '',
-      participantEmail: '',
+      signerEmail: '',
       dob: '',
       isWaiverAgreedTo: false,
       emergencyContactName: '',
@@ -74,7 +74,7 @@ export default {
       this.disableBtn = true;
       e.preventDefault();
       console.log('participantName::', this.participantName);
-      console.log('participantEmail::', this.participantEmail);
+      console.log('signerEmail::', this.signerEmail);
       console.log('dob::', this.dob);
       console.log('isWaiverAgreedTo::', this.isWaiverAgreedTo);
       console.log('emergencyContact::', this.emergencyContactName);
@@ -82,7 +82,7 @@ export default {
 
       let data = {
         particpantName: this.participantName,
-        participantEmail: this.participantEmail,
+        signerEmail: this.signerEmail,
         dob: this.dob,
         isWaiverAgreedTo: this.isWaiverAgreedTo,
         emergencyContactName: this.emergencyContactName,
