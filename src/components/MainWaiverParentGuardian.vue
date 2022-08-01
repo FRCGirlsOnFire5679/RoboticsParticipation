@@ -100,7 +100,7 @@ export default {
       console.log('emergencyContactName::', this.emergencyContactName);
       console.log('emergencyPhone::', this.emergencyPhone);
       let data = {
-        particpantName: this.participantName,
+        participantName: this.participantName,
         parentGuardianName: this.parentGuardianName,
         dob: this.dob,
         signerEmail: this.signerEmail,

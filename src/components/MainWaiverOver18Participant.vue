@@ -26,19 +26,18 @@
         </div>
         <div class="input-container">
             <label for="main-waiver-emergency-contact-phone">Emergency contact phone (required)</label>
-            <input type="text" v-model.trim="participantEmergencyPhone"
+            <input type="text" v-model.trim="emergencyPhone"
                     required
                     id="main-waiver-emergency-contact-phone"
                     name="main-waiver-emergency-contact-phone" />
-        </div>
-        <MainWaiverAgreement :disableBtn="disableBtn"></MainWaiverAgreement>
+        </div>       
         <div class="checkbox-container">
             <input type="checkbox" v-model="isWaiverAgreedTo"
                     required
                     id="main-waiver-agree-to-waiver"
                     name="main-waiver-agree-to-waiver" />
             <label for="main-waiver-agree-to-waiver">Participant has read this document and understands that this Waiver and Release of Liability includes a waiver of the right to make injury claims that is intended to be legally binding. By checking this box, Participant agrees to this Waiver and Release of Liability.(required)</label>
-            
+             <MainWaiverAgreement :disableBtn="disableBtn"></MainWaiverAgreement>
         </div>
         
       </section>
@@ -65,7 +64,7 @@ export default {
       dob: '',
       isWaiverAgreedTo: false,
       emergencyContactName: '',
-      participantEmergencyPhone: '',
+      emergencyPhone: '',
       disableBtn: false,    
   }
 },
@@ -78,15 +77,15 @@ export default {
       console.log('dob::', this.dob);
       console.log('isWaiverAgreedTo::', this.isWaiverAgreedTo);
       console.log('emergencyContact::', this.emergencyContactName);
-      console.log('emergencyPhone::', this.participantEmergencyPhone);
+      console.log('emergencyPhone::', this.emergencyPhone);
 
       let data = {
-        particpantName: this.participantName,
+        participantName: this.participantName,
         signerEmail: this.signerEmail,
         dob: this.dob,
         isWaiverAgreedTo: this.isWaiverAgreedTo,
         emergencyContactName: this.emergencyContactName,
-        participantEmergencyPhone: this.participantEmergencyPhone,
+        emergencyPhone: this.emergencyPhone,
       };
       console.log(data);
       callSheetAPI(data);
