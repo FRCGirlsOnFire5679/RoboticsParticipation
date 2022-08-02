@@ -6,15 +6,15 @@ function callSheetAPI(data) {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log(xhr.status);
-        console.log(xhr)
+            //success
+        }else{
+            //ToDo HandleError
         }
     };
     // url encode form data for sending as post data
     let encoded = Object.keys(data).map(function(k) {
         return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
     }).join('&');
-    console.log(encoded);
     xhr.send(encoded);
 }
 

@@ -141,13 +141,10 @@ export default {
   methods: {
     handleSubmitEvent(e) {
       e.preventDefault();
-      console.log('agreeToCovid19Waiver::', this.agreeToCovid19Waiver);
-      console.log('vaccinationStatus::', this.vaccinationStatus);
       let data={
         agreeToCovid19Waiver: this.agreeToCovid19Waiver,
         vaccinationStatus: this.vaccinationStatus,
       };
-      console.log(data);
       this.$emit('next', data);
     }
   }

@@ -90,13 +90,6 @@ export default {
     handleSubmitEvent(e) {
       this.disableBtn = true;
       e.preventDefault();
-      console.log('participantName::', this.participantName);
-      console.log('parentGuardianName::', this.parentGuardianName);
-      console.log('dob::', this.dob);
-      console.log('signerEmail::', this.signerEmail);
-      console.log('isWaiverAgreedTo::', this.isWaiverAgreedTo);
-      console.log('emergencyContactName::', this.emergencyContactName);
-      console.log('emergencyPhone::', this.emergencyPhone);
       let data = {
         participantName: this.participantName,
         parentGuardianName: this.parentGuardianName,
@@ -106,7 +99,6 @@ export default {
         emergencyContactName: this.emergencyContactName,
         emergencyPhone: this.emergencyPhone,
       };
-      console.log(data);
       this.$emit('next', data);
     }
   }
