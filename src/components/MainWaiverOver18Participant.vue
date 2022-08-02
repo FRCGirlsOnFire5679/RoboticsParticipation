@@ -48,8 +48,6 @@
 
 <script>
 import MainWaiverAgreement from './MainWaiverAgreement.vue'
-import callSheetAPI from '../utils/api.js'
-
 export default {
   components: {
     MainWaiverAgreement
@@ -87,15 +85,12 @@ export default {
         emergencyPhone: this.emergencyPhone,
       };
       console.log(data);
-      callSheetAPI(data);
-
-      this.$emit('next');
+      this.$emit('next', data);
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h2 {
   margin: 2em 0 0;

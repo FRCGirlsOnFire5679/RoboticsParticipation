@@ -66,16 +66,13 @@
       </section>
     </form>
 </template>
-
 <script>
 import MainWaiverAgreement from './MainWaiverAgreement.vue'
-import callSheetAPI from '../utils/api.js'
 export default {
   components: {
     MainWaiverAgreement
   },
   name: 'MainWaiverParentGuardian',
- 
   emits: ['next'],
   data(){
     return {
@@ -110,8 +107,7 @@ export default {
         emergencyPhone: this.emergencyPhone,
       };
       console.log(data);
-      callSheetAPI(data);
-      this.$emit('next');
+      this.$emit('next', data);
     }
   }
 }

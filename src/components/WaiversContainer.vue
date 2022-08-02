@@ -10,9 +10,9 @@
           </div>
         </section>
         <section v-if="!isFormUntouched">
-          <MainWaiverParentGuardian v-if="isParentGuardian && step == 1" @next="handleNextEvent" />
-          <MainWaiverOver18Participant v-if="isOver18Participant && step == 1" @next="handleNextEvent" />
-          <Covid19WaiverContainer v-if="step == 2" @next="handleNextEvent"/>
+          <MainWaiverParentGuardian v-if="isParentGuardian && step == 1" @next="handleGoToCovid19Waiver" />
+          <MainWaiverOver18Participant v-if="isOver18Participant && step == 1" @next="handleGoToCovid19Waiver" />
+          <Covid19WaiverContainer v-if="step == 2" @next="handleGoToThankYou"/>
           <ThankYou v-if="step == 3"/>
         </section>
     </form>
@@ -24,6 +24,7 @@ import MainWaiverParentGuardian from './MainWaiverParentGuardian.vue'
 import MainWaiverOver18Participant from './MainWaiverOver18Participant.vue';
 import Covid19WaiverContainer from './Covid19WaiverContainer.vue'
 import ThankYou from './ThankYou.vue'
+import callSheetAPI from '@/utils/api';
 export default {
   components: {
     Covid19WaiverContainer,
@@ -39,6 +40,8 @@ export default {
     return {
       isParentGuardian: false, // initialized to false
       isOver18Participant: false, // initialized to false 
+      mainWaiverData:{},
+      covid19WaiverData: {},
       step: 1
     }
   },
@@ -54,17 +57,22 @@ export default {
     selectAmOver18Participant() {
       this.isOver18Participant = true;
     },
-    handleNextEvent() {
+    handleGoToCovid19Waiver(data) {
+      this.mainWaiverData = data;
+      this.step++;
+    },
+    handleGoToThankYou(data) {
+      this.covid19WainWaiverData = data;
+      let dataToSend = {
+        ...this.mainWaiverData,
+        ...this.covid19WainWaiverData
+      };
+      callSheetAPI(dataToSend);
       this.step++;
     }
-    },
-
   }
-
-
+}
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h2 {
   margin: 2em 0 0;

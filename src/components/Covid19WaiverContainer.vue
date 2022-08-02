@@ -126,7 +126,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'Covid19WaiverContainer',
   props: {
@@ -135,7 +134,6 @@ export default {
   emits: ['next'],
   data(){
     return {
-      isHidden: true,
       agreeToCovid19Waiver: false,
       vaccinationStatus: '',
     }
@@ -143,10 +141,14 @@ export default {
   methods: {
     handleSubmitEvent(e) {
       e.preventDefault();
-      console.log('isHidden::', this.isHidden);
       console.log('agreeToCovid19Waiver::', this.agreeToCovid19Waiver);
       console.log('vaccinationStatus::', this.vaccinationStatus);
-      this.$emit('next');
+      let data={
+        agreeToCovid19Waiver: this.agreeToCovid19Waiver,
+        vaccinationStatus: this.vaccinationStatus,
+      };
+      console.log(data);
+      this.$emit('next', data);
     }
   }
 }
