@@ -97,19 +97,19 @@
             required
                     id="agree-to-covid19-waiver"
                     name="agree-to-covid19-waiver"/>
-            <label for="agree-to-covid19-waiver">I agree to abide by this full policy (or I agree as a parent/guardian on behalf of a child participant)</label>
+            <label for="agree-to-covid19-waiver"><strong> agree to abide by this full policy (or I agree as a parent/guardian on behalf of a child participant)</strong></label>
           </div>
           <div class="waiver__input-container">
             <input type="radio" v-model="vaccinationStatus"   value="vaccinated"
               id="attest-to-fully-vaccinated"
               name="attest-to-fully-vaccinated"/>
-            <label for="attest-to-fully-vaccinated">I have been fully vaccinated, and boosted if eligible (or I attest as a parent/guardian that my child participant has been fully vaccinated and boosted)</label>
+            <label for="attest-to-fully-vaccinated"><strong> have been fully vaccinated, and boosted if eligible (or I attest as a parent/guardian that my child participant has been fully vaccinated and boosted)</strong></label>
           </div>
           <div class="waiver__input-container">
             <input type="radio" v-model="vaccinationStatus" value="unvaccinated"
               id="attest-to-testing-requirements"
               name="attest-to-testing-requirements"/>
-            <label for="attest-to-testing-requirements">I have not been both fully vaccinated, and boosted if eligible, at this time, and agree to abide by testing requirements (or I attest as a parent/guardian that my child participant has not been both fully vaccinated and boosted at this time, and agree to abide by testing requirements)</label>
+            <label for="attest-to-testing-requirements"><strong> have not been both fully vaccinated, and boosted if eligible, at this time, and agree to abide by testing requirements (or I attest as a parent/guardian that my child participant has not been both fully vaccinated and boosted at this time, and agree to abide by testing requirements)</strong></label>
           </div>    
         </section>
         </fieldset>
