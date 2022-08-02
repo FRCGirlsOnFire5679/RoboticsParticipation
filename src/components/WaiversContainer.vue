@@ -12,7 +12,6 @@
         <section v-if="!isFormUntouched">
           <MainWaiverParentGuardian v-if="isParentGuardian && step == 1" @next="handleNextEvent" />
           <MainWaiverOver18Participant v-if="isOver18Participant && step == 1" @next="handleNextEvent" />
-          <MainWaiverAgreement v-if="agreeAndSubmit" />
           <Covid19WaiverContainer v-if="step == 2" @next="handleNextEvent"/>
           <ThankYou v-if="step == 3"/>
         </section>
@@ -24,14 +23,12 @@
 import MainWaiverParentGuardian from './MainWaiverParentGuardian.vue'
 import MainWaiverOver18Participant from './MainWaiverOver18Participant.vue';
 import Covid19WaiverContainer from './Covid19WaiverContainer.vue'
-import MainWaiverAgreement from './MainWaiverAgreement.vue'
 import ThankYou from './ThankYou.vue'
 export default {
   components: {
     Covid19WaiverContainer,
     MainWaiverParentGuardian,
     MainWaiverOver18Participant,
-    MainWaiverAgreement,
     ThankYou
 },
   name: 'WaiversContainer',
@@ -41,14 +38,13 @@ export default {
   data(){
     return {
       isParentGuardian: false, // initialized to false
-      isOver18Participant: false, // initialized to false
-      agreeAndSubmit: false, 
+      isOver18Participant: false, // initialized to false 
       step: 1
     }
   },
   computed: {
     isFormUntouched() {
-      return this.isParentGuardian == false &&  this.isOver18Participant == false && this.agreeAndSubmit == false;
+      return this.isParentGuardian == false &&  this.isOver18Participant == false;
     }
   },
   methods: {
@@ -58,9 +54,6 @@ export default {
     selectAmOver18Participant() {
       this.isOver18Participant = true;
     },
-      selectAgreeAndSubmit() {
-      this.agreeAndSubmit = false;
-      },
     handleNextEvent() {
       this.step++;
     }
