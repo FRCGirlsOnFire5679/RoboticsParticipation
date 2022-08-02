@@ -45,7 +45,7 @@
                     id="main-waiver-emergency-contact-phone"
                     name="main-waiver-emergency-contact-phone" />
         </div>
-        <MainWaiverAgreement :disableBtn="disableBtn"></MainWaiverAgreement>
+        
         <div class="checkbox-container">
            <input type="checkbox" v-model="isWaiverAgreedTo"
            required
@@ -57,7 +57,7 @@
               </strong>
             </label>
         </div>
-
+<MainWaiverAgreement :disableBtn="disableBtn"></MainWaiverAgreement>
         
         
       </section>
@@ -72,9 +72,7 @@ export default {
     MainWaiverAgreement
   },
   name: 'MainWaiverParentGuardian',
-  props: {
-    msg: String
-  },
+ 
   emits: ['next'],
   data(){
     return {

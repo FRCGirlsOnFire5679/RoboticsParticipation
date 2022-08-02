@@ -3,7 +3,7 @@
       <!-- Form Example (submitting currently does nothing with the data) -->
       <h2>COVID-19 Policy</h2>
       <fieldset style="border: none;"  id="covidpolicy">
-      <h3>Masks</h3>
+      <h3 style="color:blue">Masks</h3>
       <ul>
         <li>Requirement for masks will be dictated by CDC (United States Centers for Disease Control and Prevention) recommendations, FIRST (For Inspiration and Recognition in Science and Technology) policy, local policy, and museum policy, deferring to whichever requirement is most strict</li>
         <li>In cases when masks are required</li>
