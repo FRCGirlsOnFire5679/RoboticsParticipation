@@ -8,8 +8,6 @@ function callSheetAPI(data) {
         if (xhr.readyState === 4 && xhr.status === 200) {
         console.log(xhr.status);
         console.log(xhr)
-        // TODO: reset form
-        // TODO: display confirmation messagen
         }
     };
     // url encode form data for sending as post data
