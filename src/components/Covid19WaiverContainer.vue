@@ -109,7 +109,7 @@
         <input type="radio"
                 v-model="vaccinationStatus"
                 required
-                value="unvaccinated"
+                value="agrees-to-test"
                 id="attest-to-testing-requirements"
                 name="vaccination-status"/>
             <label for="attest-to-testing-requirements"><strong>I have not been both fully vaccinated, and boosted if eligible, at this time, and agree to abide by testing requirements (or I attest as a parent/guardian that my child participant has not been both fully vaccinated and boosted at this time, and agree to abide by testing requirements)</strong></label>
