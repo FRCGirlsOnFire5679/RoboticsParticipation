@@ -31,15 +31,7 @@
                     id="main-waiver-emergency-contact-phone"
                     name="main-waiver-emergency-contact-phone" />
         </div>       
-        <div class="checkbox-container">
-            <input type="checkbox" v-model="isWaiverAgreedTo"
-                    required
-                    id="main-waiver-agree-to-waiver"
-                    name="main-waiver-agree-to-waiver" />
-            <label for="main-waiver-agree-to-waiver">Participant has read this document and understands that this Waiver and Release of Liability includes a waiver of the right to make injury claims that is intended to be legally binding. By checking this box, Participant agrees to this Waiver and Release of Liability.(required)</label>
-             <MainWaiverAgreement :disableBtn="disableBtn"></MainWaiverAgreement>
-        </div>
-        
+        <MainWaiverAgreement :isWaiverAgreedTo="isWaiverAgreedTo" :disableBtn="disableBtn"></MainWaiverAgreement>
       </section>
     </form>
 </template>

@@ -2,7 +2,7 @@
     <form @submit="handleSubmitEvent">
       <!-- Form Example (submitting currently does nothing with the data) -->
       <h2>COVID-19 Policy</h2>
-      <fieldset id="covidpolicy">
+      <fieldset style="border: none;"  id="covidpolicy">
       <h3>Masks</h3>
       <ul>
         <li>Requirement for masks will be dictated by CDC (United States Centers for Disease Control and Prevention) recommendations, FIRST (For Inspiration and Recognition in Science and Technology) policy, local policy, and museum policy, deferring to whichever requirement is most strict</li>
@@ -183,8 +183,8 @@ text-align: left;
   width: 1px;
 }
 .image-fit {
-height: 35%;
-width: 35%;
+height: 60%;
+width:60%;
 object-fit: cover;
 }
 </style>
