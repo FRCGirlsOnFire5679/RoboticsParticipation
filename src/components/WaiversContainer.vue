@@ -10,10 +10,11 @@
           </div>
         </section>
         <section v-if="!isFormUntouched">
-          <MainWaiverParentGuardian v-if="isParentGuardian && step == 1" @next="handleGoToCovid19Waiver" />
-          <MainWaiverOver18Participant v-if="isOver18Participant && step == 1" @next="handleGoToCovid19Waiver" />
-          <Covid19WaiverContainer v-if="step == 2" @next="handleGoToThankYou"/>
-          <ThankYou v-if="step == 3"/>
+          <MainWaiverParentGuardian v-if="isParentGuardian && step === 1" @next="handleGoToCovid19Waiver" />
+          <MainWaiverOver18Participant v-if="isOver18Participant && step === 1" @next="handleGoToCovid19Waiver" />
+          <Covid19WaiverContainer :isLoading="isLoading" v-if="step === 2" @next="handleGoToThankYou"/>
+          <ThankYou v-if="step === 3"/>
+          <SomethingWentWrong v-if="step === 4"/>
         </section>
     </form>
     
@@ -21,16 +22,18 @@
 
 <script>
 import MainWaiverParentGuardian from './MainWaiverParentGuardian.vue'
-import MainWaiverOver18Participant from './MainWaiverOver18Participant.vue';
+import MainWaiverOver18Participant from './MainWaiverOver18Participant.vue'
 import Covid19WaiverContainer from './Covid19WaiverContainer.vue'
 import ThankYou from './ThankYou.vue'
+import SomethingWentWrong from './SomethingWentWrong.vue'
 import callSheetAPI from '@/utils/api';
 export default {
   components: {
     Covid19WaiverContainer,
     MainWaiverParentGuardian,
     MainWaiverOver18Participant,
-    ThankYou
+    ThankYou,
+    SomethingWentWrong
 },
   name: 'WaiversContainer',
   props: {
@@ -42,7 +45,8 @@ export default {
       isOver18Participant: false, // initialized to false 
       mainWaiverData:{},
       covid19WaiverData: {},
-      step: 1
+      step: 1,
+      isLoading: false,
     }
   },
   computed: {
@@ -63,12 +67,22 @@ export default {
     },
     handleGoToThankYou(data) {
       this.covid19WainWaiverData = data;
+      this.isLoading = true;
       let dataToSend = {
         ...this.mainWaiverData,
         ...this.covid19WainWaiverData
       };
-      callSheetAPI(dataToSend);
-      this.step++;
+      let xhr = callSheetAPI(dataToSend);
+      let self = this;
+      xhr.onreadystatechange = function(){
+          if(xhr.readyState === 4 && xhr.status === 200){
+            //success
+            self.step++;
+          }else if(xhr.status !== 200){
+            //failure
+            self.step +=2;
+          }
+        }
     }
   }
 }

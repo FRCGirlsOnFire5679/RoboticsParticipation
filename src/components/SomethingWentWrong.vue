@@ -1,7 +1,8 @@
 <template>
-    <h2>Thank you!</h2>
-    <h3>Your information has been submitted successfully.</h3>
+    <h2>Oops!</h2>
+    <h3>Something went wrong. Please try submitting again.</h3>
 </template>
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h2 {

@@ -120,7 +120,7 @@
         </section>
         </fieldset>
 
-        <button type="submit" class="primary-action">Agree and Submit</button>
+      <button :disabled="isLoading" type="submit" class="primary-action">{{isLoading ? 'Please Wait...' : 'Agree and Submit'}}</button>
     </form>
     
 </template>
@@ -129,7 +129,7 @@
 export default {
   name: 'Covid19WaiverContainer',
   props: {
-    msg: String
+    isLoading: Boolean
   },
   emits: ['next'],
   data(){
