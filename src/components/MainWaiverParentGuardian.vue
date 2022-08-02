@@ -45,6 +45,7 @@
                     id="main-waiver-emergency-contact-phone"
                     name="main-waiver-emergency-contact-phone" />
         </div>
+        <MainWaiverAgreement></MainWaiverAgreement>
         
         <div class="checkbox-container">
            <input type="checkbox" v-model="isWaiverAgreedTo"
@@ -57,7 +58,9 @@
               </strong>
             </label>
         </div>
-<MainWaiverAgreement :disableBtn="disableBtn"></MainWaiverAgreement>
+        <button :disabled="disableBtn" type="submit" class="primary-action">
+          {{ disableBtn ? 'Please Wait...'  : 'Agree and Submit' }}
+        </button>
         
         
       </section>

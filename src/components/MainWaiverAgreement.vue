@@ -15,9 +15,6 @@
 </p> 
 
 
-<button :disabled="disableBtn" type="submit" class="primary-action">
-  {{ disableBtn ? 'Please Wait...'  : 'Agree and Submit' }}
-</button>
 
 
 </section>
@@ -27,29 +24,8 @@
 
 
 export default {
-  emits: ['mainWaiverCompleted'],
   name: 'MainWaiverAgreement',
-  props: {
-    disableBtn: {
-      type: Boolean,
-      required: true,
-    },
-    isWaiverAgreedTo:{
-       type: Boolean,
-      required: true,
-    }
-  },
-  data(){
-    return {
-
-          }
-  },
-  methods: {
-    evaluateMainWaiver() {
-      this.$refs.form.submit();
-    }
-  }
- 
+  
 }
 
 </script>
@@ -59,11 +35,5 @@ export default {
 .waiver-text {
   text-align: left;
 }
-div.checkbox-container {
-  display: flex;
-  text-align: left;
-  align-items: flex-start;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
+
 </style>

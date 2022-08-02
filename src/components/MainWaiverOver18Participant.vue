@@ -1,6 +1,5 @@
 <template>
     <form ref="form" @submit="handleSubmitEvent">
-      <!-- Form Example (submitting currently does nothing with the data) -->
       <h2>Waiver and Release of Liability</h2>
       <section class="form-inputs-container">
         <div class="input-container">
@@ -30,8 +29,19 @@
                     required
                     id="main-waiver-emergency-contact-phone"
                     name="main-waiver-emergency-contact-phone" />
-        </div>       
-        <MainWaiverAgreement :isWaiverAgreedTo="isWaiverAgreedTo" :disableBtn="disableBtn"></MainWaiverAgreement>
+        </div>  
+        <MainWaiverAgreement></MainWaiverAgreement>
+        <div class="checkbox-container">
+            <input type="checkbox" 
+                    required
+                    v-model="isWaiverAgreedTo"
+                    id="main-waiver-agree-to-waiver"
+                    name="main-waiver-agree-to-waiver" />
+            <label for="main-waiver-agree-to-waiver">Participant has read this document and understands that this Waiver and Release of Liability includes a waiver of the right to make injury claims that is intended to be legally binding. By checking this box, Participant agrees to this Waiver and Release of Liability.(required)</label>
+        </div>
+        <button :disabled="disableBtn" type="submit" class="primary-action">
+          {{ disableBtn ? 'Please Wait...'  : 'Agree and Submit' }}
+        </button>
       </section>
     </form>
 </template>
@@ -45,9 +55,6 @@ export default {
     MainWaiverAgreement
   },
   name: 'MainWaiverContainer',
-  props: {
-    msg: String
-  },
   emits: ['next'],
   data(){
     return {
