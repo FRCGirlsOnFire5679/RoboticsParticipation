@@ -1,5 +1,5 @@
 function callSheetAPI(data) {
-    let url = "https://script.google.com/macros/s/AKfycbxrcVsD88Xng09IM4Mh0G_15WfF5tbHj8auN6Al93cphcDOwpNwqVR9QO05D5IS4ZL2/exec";
+    let url = "https://script.google.com/macros/s/AKfycbyRDqIgLeSEEkO69RhlWHnRbqexWtYfVOH_aitGbHKiJXFpbABiQyeZ0ERXND6eFx3r/exec";
     let xhr = new XMLHttpRequest();
     xhr.open('POST', url);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

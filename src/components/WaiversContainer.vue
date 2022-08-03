@@ -1,6 +1,5 @@
 <template>
     <form>
-      <!-- Form Example (submitting currently does nothing with the data) -->
       <h2 v-if="isFormUntouched">Please select who is completing these waivers to start:</h2>
         <section v-if="isFormUntouched">
           <div class="action-container">

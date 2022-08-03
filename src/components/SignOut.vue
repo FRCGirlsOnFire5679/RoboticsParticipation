@@ -16,7 +16,7 @@
                     v-model="signOutName" />
           </div>
         </section>
-        <button class="primary-action" :disabled="isLoading">{{isLoading ? 'Please Wait...' : 'Submit'}}</button>
+        <button class="primary-action" :disabled="isLoading" :class="isLoading ? 'disabled-action' : ''">{{isLoading ? 'Please Wait...' : 'Submit'}}</button>
       </form>  
 </template>
 

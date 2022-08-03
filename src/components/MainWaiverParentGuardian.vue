@@ -1,6 +1,5 @@
 <template>
     <form ref="form" @submit="handleSubmitEvent">
-      <!-- Form Example (submitting currently does nothing with the data) -->
       <h2>Waiver and Release of Liability</h2>
       <section class="form-inputs-container">
         <div class="input-container">

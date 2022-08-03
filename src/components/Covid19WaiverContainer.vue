@@ -1,6 +1,5 @@
 <template>
   <form @submit="handleSubmitEvent">
-    <!-- Form Example (submitting currently does nothing with the data) -->
     <h2>COVID-19 Policy</h2>
     <section class="form-inputs-container">
     <h3>Masks</h3>
@@ -114,7 +113,7 @@
                 name="vaccination-status"/>
             <label for="attest-to-testing-requirements"><strong>I have not been both fully vaccinated, and boosted if eligible, at this time, and agree to abide by testing requirements (or I attest as a parent/guardian that my child participant has not been both fully vaccinated and boosted at this time, and agree to abide by testing requirements)</strong></label>
       </div>    
-      <button :disabled="isLoading" type="submit" class="primary-action">
+      <button :disabled="isLoading" type="submit" class="primary-action" :class="isLoading ? 'disabled-action' : ''">
         {{ isLoading ? 'Please Wait...'  : 'Agree and Submit' }}
       </button>
     </section>

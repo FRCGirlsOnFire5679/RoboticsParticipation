@@ -121,4 +121,17 @@ export default {
   color: #fff;
   border: 2px solid #038489;
 }
+.primary-action.disabled-action,
+.secondary-action.disabled-action {
+  font-style: oblique;
+  color: #54687c;
+  border: 2px solid #54687c;
+  cursor: not-allowed;
+}
+.primary-action.disabled-action:hover,
+.secondary-action.disabled-action:hover {
+  background: #fff;
+  color: #54687c;
+  cursor: not-allowed;
+}
 </style>
