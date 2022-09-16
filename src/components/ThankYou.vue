@@ -1,3 +1,8 @@
+<script>
+    setTimeout(function(){
+      window.location.href = '/';
+    }, 10000);
+</script>
 <template>
     <h2>Thank you!</h2>
     <h3>Your information has been submitted successfully.</h3>
