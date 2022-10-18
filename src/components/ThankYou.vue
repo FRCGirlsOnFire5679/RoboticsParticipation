@@ -1,7 +1,7 @@
 <template>
     <h2>Thank you!</h2>
     <h3>Your information has been submitted successfully.</h3>
-    <h4>Redirecting to sign in page in {{countDown}} second(s)...</h4>
+    <h4>Redirecting to previous page in {{countDown}} second(s)...</h4>
 </template>
 
 <script>
