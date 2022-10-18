@@ -61,7 +61,10 @@ export default {
         xhr.onreadystatechange = function(){
           if(xhr.readyState === 4 && xhr.status === 200){
             //success
-            self.submittedSuccessfully = true;
+            self.submittedSuccessfully = true;            
+            setTimeout(function(){
+              window.location.href = '/RoboticsParticipation';
+            }, 3000);
           }else if(xhr.status !== 200){
             //failure
             self.hasSubmissionError = true;

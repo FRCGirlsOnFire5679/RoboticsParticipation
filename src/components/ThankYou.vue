@@ -1,7 +1,5 @@
 <script>
-    setTimeout(function(){
-      window.location.href = '/RoboticsParticipation';
-    }, 10000);
+    
 </script>
 <template>
     <h2>Thank you!</h2>
