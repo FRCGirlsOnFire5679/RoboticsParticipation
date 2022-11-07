@@ -7,8 +7,8 @@
         <button @click="showSignOut" class="tab-action" :class="shouldShowSignOut ? 'tab-action--active' : ''">Sign Out</button>
       </section>
       <!-- <WaiversContainer v-if="shouldShowSignWaiver" :key="waiverKey"/> -->
-      <SignIn v-if="shouldShowSignIn" :key="signInKey" />
-      <SignOut v-if="shouldShowSignOut" :key="signOutKey" />
+      <SignIn v-if="shouldShowSignIn" :key="signInKey" @return_to_signin="showSignIn" />
+      <SignOut v-if="shouldShowSignOut" :key="signOutKey" @return_to_signout="showSignOut" />
   </div>
 </template>
 
@@ -60,7 +60,8 @@ export default {
       this.shouldShowSignIn = false;
       this.shouldShowSignOut = false;
       this.shouldShowSignWaiver = true;
-    }
+    },
+
   }
 }
 
