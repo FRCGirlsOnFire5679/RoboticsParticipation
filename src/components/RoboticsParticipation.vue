@@ -2,11 +2,11 @@
   <div class="robotics-welcome">
     <h1>{{ msg }}</h1>
       <section  class="pseudo-navigation">
-        <button @click="showSignWaiver" class="tab-action" :class="shouldShowSignWaiver ? 'tab-action--active' : ''">Complete Waiver</button>
+        <!-- <button @click="showSignWaiver" class="tab-action" :class="shouldShowSignWaiver ? 'tab-action--active' : ''">Complete Waiver</button> -->
         <button @click="showSignIn" class="tab-action" :class="shouldShowSignIn ? 'tab-action--active' : ''">Sign In</button>
         <button @click="showSignOut" class="tab-action" :class="shouldShowSignOut ? 'tab-action--active' : ''">Sign Out</button>
       </section>
-      <WaiversContainer v-if="shouldShowSignWaiver" :key="waiverKey"/>
+      <!-- <WaiversContainer v-if="shouldShowSignWaiver" :key="waiverKey"/> -->
       <SignIn v-if="shouldShowSignIn" :key="signInKey" />
       <SignOut v-if="shouldShowSignOut" :key="signOutKey" />
   </div>
@@ -15,12 +15,12 @@
 <script>
 import SignIn from './SignIn.vue'
 import SignOut from './SignOut.vue'
-import WaiversContainer from './WaiversContainer.vue'
+// import WaiversContainer from './WaiversContainer.vue'
 export default {
   components: {
     SignIn,
     SignOut,
-    WaiversContainer
+    // WaiversContainer
   },
   name: 'RoboticsParticipation',
   props: {
